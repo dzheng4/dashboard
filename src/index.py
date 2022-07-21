@@ -7,7 +7,7 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, page02, summary
+from apps import page01, page02, summary, Illinois
 
 
 app.layout = html.Div([
@@ -33,6 +33,10 @@ app.layout = html.Div([
             dbc.DropdownMenuItem(
                 "California", href="/apps/summary/California"
             ),
+            dbc.DropdownMenuItem(
+                "Illinois", href="/apps/Illinois"
+            ),
+
 
         ],label="Menu",),
         html.P(id="item-clicks", className="mt-3"),
@@ -56,6 +60,8 @@ def display_page(pathname):
         return page02.layout
     if pathname == '/apps/summary':
         return summary.layout
+    if pathname == '/apps/Illinois':
+       return Illinois.layout
     else:
         return "404 Page Error! Please choose a link"
 
