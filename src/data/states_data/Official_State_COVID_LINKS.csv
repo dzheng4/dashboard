@@ -1,0 +1,51 @@
+﻿State,Link,Data Score,Distribution,Provider,Wastage
+Alabama,https://dph1.adph.state.al.us/covid-19/,3,No,Yes,No
+Alaska,https://experience.arcgis.com/experience/a7e8be4adbe740a1bad1393894ee4075,7,No,No,No
+Arizona,https://www.azdhs.gov/covid19/data/index.php#vaccine-admin,6,No,No,No
+Arkansas,https://experience.arcgis.com/experience/633006d0782b4544bd5113a314f6268a/,4,No,No,No
+California,https://data.ca.gov/group/covid-19,7,No,No,No
+Colorado,https://drive.google.com/drive/folders/1efQVBclGxwnCCYVLbzH96A0QRSWwmTYI,4,No,No,No
+Connecticut,https://data.ct.gov/browse?COVID-19_Topic=Vaccination,10,No,No,No
+Delaware,https://myhealthycommunity.dhss.delaware.gov/locations/state/vaccine-tracker#vaccine_tracker,9,No,No,No
+Florida,None,1,No,No,No
+Georgia,https://experience.arcgis.com/experience/3d8eea39f5c1443db1743a4cb8948a9c,8,No,No,No
+Hawaii,https://health.hawaii.gov/coronavirusdisease2019/current-situation-in-hawaii/#vaccine,4,No,No,No
+Idaho,https://public.tableau.com/app/profile/idaho.division.of.public.health/viz/COVID-19VaccineDataDashboard/LandingPage,5,No,No,No
+Illinois,https://dph.illinois.gov/covid19/vaccine/vaccine-data?county=Illinois,9,No,No,Yes
+Indiana,https://www.coronavirus.in.gov/vaccine/2680.htm,6,No,No,No
+Iowa,https://coronavirus.iowa.gov/pages/vaccineinformation,8,No,No,No
+Kansas,https://www.kansasvaccine.gov/158/Data,8,Yes,No,No
+Kentucky,https://govstatus.egov.com/ky-covid-vaccine,8,Yes,No,No
+Louisiana,https://ladhh.maps.arcgis.com/apps/opsdashboard/index.html#/e3d40ebd0b594202893c033fb4541ae9,2,No,No,No
+Maine,https://www.maine.gov/covid19/vaccines/dashboard,9,Yes,No,No
+Maryland,https://coronavirus.maryland.gov/#Vaccine,6,No,No,No
+Massachusetts,https://www.mass.gov/info-details/massachusetts-covid-19-vaccination-data-and-updates#daily-covid-19-vaccine-report-,8,Yes,No,No
+Michigan,"https://www.michigan.gov/coronavirus/0,9753,7-406-98178_103214-547150--,00.html",10,Yes,Yes,No
+Minnesota,https://mn.gov/covid19/vaccine/data/index.jsp,9,Yes,No,No
+Mississippi,"https://msdh.ms.gov/msdhsite/_static/14,23549,420,971.html",8,Yes,Yes,No
+Missouri,https://health.mo.gov/living/healthcondiseases/communicable/novel-coronavirus/data/data-download-vaccine.php,6,No,No,No
+Montana,https://montana.maps.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b,2,No,No,No
+Nebraska,https://dhhs.ne.gov/Pages/COVID-19-Weekly-Update.aspx,1,No,No,No
+Nevada,https://nvhealthresponse.nv.gov/#covid-data-tracker,6,No,No,No
+New Hampshire,https://www.covid19.nh.gov/dashboard,10,Yes,Yes,No
+New Jersey,https://njhealth.maps.arcgis.com/apps/MapSeries/index.html?appid=50c2c6af93364b4da9c0bf6327c04b45&folderid=e5d6362c0f1f4f9684dc650f00741b24,9,Yes,No,No
+New Mexico,https://cvvaccine.nmhealth.org/public-dashboard.html,6,No,No,No
+New York,https://covid19vaccine.health.ny.gov/covid-19-vaccine-tracker,7,No,No,No
+North Carolina,https://covid19.ncdhhs.gov/dashboard/vaccinations,7,No,No,No
+North Dakota,https://www.health.nd.gov/covid19vaccine/dashboard,8,No,Yes,No
+Ohio,https://coronavirus.ohio.gov/wps/portal/gov/covid-19/dashboards/covid-19-vaccine/covid-19-vaccination-dashboard,5,No,No,No
+Oklahoma,https://oklahoma.gov/covid19.html,1,No,No,No
+Oregon,https://public.tableau.com/app/profile/oregon.health.authority.covid.19/viz/OregonCOVID-19VaccinationTrends/OregonStatewideVaccinationTrends,8,No,No,No
+Pennsylvania,https://data.pa.gov/browse?q=covid%20vaccine&sortBy=relevance,15,Yes,Yes,Yes
+Rhode Island,https://ri-department-of-health-covid-19-vaccine-data-rihealth.hub.arcgis.com/,5,No,No,No
+South Carolina,https://scdhec.gov/covid-19-vaccine-allocations-south-carolina-0,9,No,No,No
+South Dakota,https://doh.sd.gov/COVID/Dashboard.aspx,1,No,No,No
+Tennessee,https://www.tn.gov/health/cedep/ncov/covid-19-vaccine-information.html,2,No,No,No
+Texas,https://dshs.texas.gov/coronavirus/AdditionalData.aspx,7,No,Yes,No
+Utah,https://coronavirus-dashboard.utah.gov/vaccines.html,6,No,No,No
+Vermont,https://www.healthvermont.gov/covid-19/vaccine/covid-19-vaccine-dashboard,6,No,No,No
+Virginia,https://www.vdh.virginia.gov/coronavirus/covid-19-in-virginia/covid-19-vaccine-summary/,8,No,Yes,No
+Washington,https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard,6,No,No,No
+West Virginia,https://dhhr.wv.gov/COVID-19/Pages/default.aspx,6,No,No,No
+Wisconsin,https://www.dhs.wisconsin.gov/covid-19/vaccine-data.htm#day,9,No,Yes,No
+Wyoming,https://health.wyo.gov/publichealth/immunization/wyoming-covid-19-vaccine-information/covid-19-vaccine-distribution-data/,4,No,No,No
