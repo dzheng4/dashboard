@@ -37,7 +37,10 @@ from app import load_data
 # )
 
 penn_retail_df = load_data('states_data/PA/Pennsylvania_Retail_Pharmacy_Vaccine_Allocation2022_06_23.csv')
+
 summary_df = load_data('states_data/Official_State_COVID_LINKS.csv')
+
+illinois_df = load_data('states_data/IL/IL_county.csv')
 
 path = "fips2county.tsv"
 PATH = pathlib.Path(__file__).parent
