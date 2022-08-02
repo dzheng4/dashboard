@@ -42,6 +42,10 @@ summary_df = load_data('states_data/Official_State_COVID_LINKS.csv')
 
 illinois_df = load_data('states_data/IL/IL_county.csv')
 
+newyork_df = load_data('states_data/NY/New York_Vaccination_By_County2022_07_14.csv')
+
+
+
 path = "fips2county.tsv"
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath(path).resolve()

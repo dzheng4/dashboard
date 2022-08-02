@@ -7,7 +7,7 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, page02, official_navigation, Illinois
+from apps import page01, page02, official_navigation, Illinois, NewYork
 
 
 app.layout = html.Div([
@@ -55,6 +55,9 @@ app.layout = html.Div([
                 "Illinois", href="/apps/Illinois"
             ),
             dbc.DropdownMenuItem(
+                "New York", href="/apps/NewYork"
+            ),
+            dbc.DropdownMenuItem(
                 "Michigan", href="https://public.tableau.com/views/Michigan_COVID19_Dashboard/MichiganDashboard?:language=en-US&:display_count=n&:origin=viz_share_link", target="_blank"
             ),
             dbc.DropdownMenuItem(
@@ -98,7 +101,10 @@ def display_page(pathname):
     if pathname == '/apps/navigation':
         return official_navigation.layout
     if pathname == '/apps/Illinois':
-       return Illinois.layout
+        return Illinois.layout
+    if pathname == '/apps/NewYork':
+        return NewYork.layout
+        
     
     
     return "404 Page Error! Please choose a link"
