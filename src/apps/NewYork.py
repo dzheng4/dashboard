@@ -28,7 +28,7 @@ layout = html.Div([
                     max_date_allowed = datetime(2022, 7, 8),
                     initial_visible_month = datetime(2020, 12, 14),
                     start_date = datetime(2020, 12, 14),
-                    end_date = datetime(2021, 1, 14)
+                    end_date = datetime(2022, 1, 14)
                 ),
             ), width = 6
         ),
@@ -91,6 +91,7 @@ def make_figures(n_clicks:int, Start_date: datetime, End_date: datetime):
     grouped_df = newyork_df
     grouped_df['Report as of'] = pd.to_datetime(grouped_df['Report as of'])
     grouped_df = grouped_df[(grouped_df['Report as of'] >= Start_date) & (grouped_df['Report as of'] <= End_date)]
+    print(grouped_df)
     # grouped_df['Month'] = grouped_df['Report as of'].dt.to_period('M')
     grouped_df['Month'] = grouped_df['Report as of'].apply(lambda x: x.strftime('%Y-%m'))
 
@@ -104,8 +105,6 @@ def make_figures(n_clicks:int, Start_date: datetime, End_date: datetime):
 
     df = CountyDf.merge(df, how='inner', left_on='CountyName', right_on='County').drop_duplicates()
     df['CountyFIPS'] = df['CountyFIPS'].astype('string')
-
-    print(df)
 
     with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
         counties = json.load(response)

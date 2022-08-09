@@ -7,7 +7,7 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, page02, official_navigation, Illinois, NewYork
+from apps import page01, page02, official_navigation, Illinois, NewYork, PennMap
 
 
 app.layout = html.Div([
@@ -50,6 +50,9 @@ app.layout = html.Div([
             ),
             dbc.DropdownMenuItem(
                 "Penn2", href="/apps/page-02"
+            ),
+            dbc.DropdownMenuItem(
+                "Penn Map", href="/apps/PennMap"
             ),
             dbc.DropdownMenuItem(
                 "Illinois", href="/apps/Illinois"
@@ -104,6 +107,8 @@ def display_page(pathname):
         return Illinois.layout
     if pathname == '/apps/NewYork':
         return NewYork.layout
+    if pathname == '/apps/PennMap':
+        return PennMap.layout
         
     
     
