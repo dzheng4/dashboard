@@ -99,8 +99,6 @@ def display_page(pathname):
         return official_navigation.layout
     if pathname == '/apps/page-01':
         return page01.layout
-    if pathname == '/apps/page-02':
-        return page02.layout
     if pathname == '/apps/navigation':
         return official_navigation.layout
     if pathname == '/apps/Illinois':
