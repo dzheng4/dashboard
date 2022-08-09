@@ -7,7 +7,7 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, page02, official_navigation, Illinois, NewYork, PennMap
+from apps import page01, official_navigation, Illinois, NewYork, PennMap
 
 
 app.layout = html.Div([
