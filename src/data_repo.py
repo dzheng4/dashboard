@@ -1,3 +1,4 @@
+from json import load
 import numpy as np
 import time
 import numpy as np
@@ -36,13 +37,21 @@ from app import load_data
 #     }
 # )
 
-penn_retail_df = load_data('states_data/PA/Pennsylvania_Retail_Pharmacy_Vaccine_Allocation2022_06_23.csv')
+penn_retail_df = load_data('states_data/PA/Pennsylvania_Retail_Pharmacy_Vaccine_Allocation2022_08_11.csv')
 
 summary_df = load_data('states_data/Official_State_COVID_LINKS.csv')
 
 illinois_df = load_data('states_data/IL/IL_county.csv')
 
 newyork_df = load_data('states_data/NY/New York_Vaccination_By_County2022_07_14.csv')
+
+connecticut_df = load_data('states_data/CT/Connecticut_Vaccination By Week-2022_08_09.csv')
+
+maryland_hospital_df = load_data('states_data/MD/Maryland_Hospital_Status2022_08_11.csv')
+
+maryland_vaccination_df = load_data('states_data/MD/Maryland_Daily_Vaccinations2022_08_11.csv')
+
+minnesota_vaccination_df = load_data('states_data/MN/Doses Administered By Week_tcm1148-513629.csv')
 
 
 

@@ -7,7 +7,8 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, official_navigation, Illinois, NewYork, PennMap
+from apps import page01, official_navigation, Illinois, NewYork, PennMap, Connecticut, Maryland, Minnesota
+
 
 
 app.layout = html.Div([
@@ -49,9 +50,6 @@ app.layout = html.Div([
                 "Penn", href="/apps/page-01"
             ),
             dbc.DropdownMenuItem(
-                "Penn2", href="/apps/page-02"
-            ),
-            dbc.DropdownMenuItem(
                 "Penn Map", href="/apps/PennMap"
             ),
             dbc.DropdownMenuItem(
@@ -59,6 +57,15 @@ app.layout = html.Div([
             ),
             dbc.DropdownMenuItem(
                 "New York", href="/apps/NewYork"
+            ),
+            dbc.DropdownMenuItem(
+                "Connecticut", href="/apps/Connecticut"
+            ),
+            dbc.DropdownMenuItem(
+                "Maryland", href="/apps/Maryland"
+            ),
+            dbc.DropdownMenuItem(
+                "Minnesota", href="/apps/Minnesota"
             ),
             dbc.DropdownMenuItem(
                 "Michigan", href="https://public.tableau.com/views/Michigan_COVID19_Dashboard/MichiganDashboard?:language=en-US&:display_count=n&:origin=viz_share_link", target="_blank"
@@ -71,9 +78,6 @@ app.layout = html.Div([
             ),
             dbc.DropdownMenuItem(
                 "Texas", href="https://public.tableau.com/shared/D4N655QT3?:display_count=n&:origin=viz_share_link", target="_blank"
-            ),
-            dbc.DropdownMenuItem(
-                "Connecticut", href="https://public.tableau.com/views/Connecticut_COVID19_Dashboard/ConnecticutStateLevelWeeklyVaccineAllocation?:language=en-US&:display_count=n&:origin=viz_share_link", target="_blank"
             ),
             dbc.DropdownMenuItem(
                 "Delaware", href="https://public.tableau.com/shared/39DFRRWZS?:display_count=n&:origin=viz_share_link", target="_blank"
@@ -107,7 +111,13 @@ def display_page(pathname):
         return NewYork.layout
     if pathname == '/apps/PennMap':
         return PennMap.layout
-        
+    if pathname == '/apps/Connecticut':
+        return Connecticut.layout
+    if pathname ==  '/apps/Maryland':
+        return Maryland.layout
+    if pathname == '/apps/Minnesota':
+        return Minnesota.layout
+
     
     
     return "404 Page Error! Please choose a link"
