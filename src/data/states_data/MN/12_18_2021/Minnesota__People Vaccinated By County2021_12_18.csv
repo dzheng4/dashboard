@@ -1,0 +1,74 @@
+,"<head><title>ShieldSquare Captcha</title><script type=""text/javascript"">"
+0,	window.SSJSInternal = 17755;
+1,"    var __uzdbm_1 = ""9f24681e-61c9-420b-9e63-0b2f36c6f28b"";"
+2,"    var __uzdbm_2 = ""MWZhOTM4ODgtYmY1Ni00ZmU0LTljZTMtYjY1NGFjY2JjOGY4JDM0Ljg2LjMuMjY="";"
+3,		a = d.createElement(e);
+4,		a.async = true;
+5,		a.src = u;
+6,		b = d.getElementsByTagName(e)[0];
+7,</script>
+8,"<link rel=""stylesheet"" type=""text/css"" href=""http://captcha.perfdrive.com/captcha-public/css/shieldsquare_styles.min.css"">"
+9,"<link rel=""stylesheet"" media=""screen"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">"
+10,<style>
+11,.fontes{
+12,        padding-left: 2em;
+13,        padding-right: 2em;
+14,        font-size: 1rem;
+15,    }
+16,</style>
+17,"<header class=""mn-blue margin-bottom padding-bottom padding-top"">"
+18,"    <div class=""container"">"
+19,"        <div class=""row"">"
+20,"            <div class=""col-xs-2""></div>"
+21,"            <div class=""col-xs-8 text-center padding-bottom padding-top"">"
+22,"                <svg version=""1.1"" id=""Layer_1"" alt=""State of MN Logo"" xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"" x=""0px"" y=""0px"" viewBox=""0 0 462.94 58.39"" style=""enable-background:new 0 0 462.94 58.39;"" xml:space=""preserve"">"
+23,<title>State of MN Logo</title>
+24,"           <style type=""text/css"">"
+25,               .st0{fill:#72BF44;}
+26,               .st1{fill:#fff;}
+27,           </style>
+28,           <g>
+29,               <g>
+30,"                       z""></path>"
+31,               </g>
+32,           </g>
+33,           </svg>
+34,"                <!-- <h1><span class=""mn"">m<span class=""mn-green-text"">n</span></span> <span class=""minnesota"">minnesota</span></h1> -->"
+35,            </div>
+36,"            <div class=""col-xs-2""></div>"
+37,        </div>
+38,    </div>
+39,</header>
+40,<article>
+41,"        <div class=""container fontes""><center>"
+42,"               <div class=""row"">"
+43,                    <div>
+44,                         <!-- <h1>We apologize for the inconvenience...</h1>
+45,                         <p>...but your activity and behavior on this site made us think that you are a bot.</p>
+46,                         <p><b>Note:</b> A number of things could be going on here.</p>
+47,                         <ol>
+48,                         </ol> -->
+49,                         <h2>Please validate your request</h2>
+50,                        <p>
+51,                            Complete this task to confirm you are a human generating this request. Thank you!
+52,                        </p>
+53,                    </div>
+54,               </div></center>
+55,"               <div class=""row""><center>"
+56,                    <br>
+57,                    <div>
+58,                         <p><b> Please solve this CAPTCHA to proceed to the website </b></p>
+59,                    </div>
+60,                    <br>
+61,"                     <div class=""captcha-mid"">"
+62,            <!-- *Required - Uncomment the below commented php code and remove 'echo 1234' before submit -->
+63,"            <form action="""" method=POST style=""width:300px;margin-left:auto;margin-right:auto;"">"
+64,"            <script type=""text/javascript"" src=""https://hcaptcha.com/1/api.js""></script>"
+65,"            <div class=""h-captcha"" data-sitekey=""ae73173b-7003-44e0-bc87-654d0dab8b75""></div>"
+66,"            <input type=""hidden"" id=""recaptcha_response"" name=""recaptcha_response""><br>"
+67,"            <center><br><input type=""submit"" class=""btn btn-success btn-sm"" Value=""Submit""><br></center>"
+68,            </form>
+69,                                                     </div></center>
+70,               </div>
+71,        </div>
+72,</article>
