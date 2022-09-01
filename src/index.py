@@ -7,7 +7,7 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, official_navigation, Illinois, NewYork, PennMap, Connecticut, Maryland, Minnesota, SourceSelection
+from apps import page01, official_navigation, Illinois, NewYork, PennMap, Connecticut, Maryland, Minnesota, SourceSelection, IndividualStates
 
 
 
@@ -58,6 +58,8 @@ def display_page(pathname):
         return SourceSelection.layout
     if pathname == '/apps/official_navigation':
         return official_navigation.layout
+    if pathname == '/apps/IndividualStates':
+        return IndividualStates.layout
     if pathname == '/apps/page-01':
         return page01.layout
     if pathname == '/apps/navigation':

@@ -12,6 +12,7 @@ from app import app
 from data_repo import illinois_df, fips_df
 import json
 from urllib.request import urlopen
+from apps import templates
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
@@ -21,6 +22,10 @@ layout = html.Div([
     dcc.Location(
         id = 'url-illinois',
         refresh = True
+    ),
+
+    dbc.Row(
+        templates.createMenu()
     ),
 
     dbc.Row(
@@ -54,6 +59,7 @@ layout = html.Div([
         )
     ),
 
+    templates.backHome()
 
 ])
 

@@ -12,12 +12,14 @@ from app import app
 from data_repo import newyork_df, fips_df
 import json
 from urllib.request import urlopen
+from apps import templates
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../states_data/NY").resolve()
 
 layout = html.Div([
+    templates.createMenu(),
     # All elements from the top of the page
     dbc.Row([
         dbc.Col(
@@ -77,6 +79,8 @@ layout = html.Div([
             ]), width = 12
         )
     ),
+
+    templates.backHome()
 
 ])
 

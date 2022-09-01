@@ -30,7 +30,7 @@ layout = html.Div([
                 ],
                     style = {
                         "width" : "30rem",
-                        'margin-left' : '40%',
+                        'margin-left' : 'auto',
                         'margin-right' : 'auto',
                         'border' : 'none'
                     }
@@ -52,7 +52,7 @@ layout = html.Div([
                     ),
                     dbc.CardBody([
                         dbc.Button(
-                            "Individual States Datasets",
+                            "Official Websites",
                             href='/apps/official_navigation'
                         )
                     ], className = 'align-self-center')
@@ -60,7 +60,36 @@ layout = html.Div([
                     style = {
                         "width" : "30rem",
                         'margin-left' : 'auto',
-                        'margin-right' : '40%',
+                        'margin-right' : 'auto',
+                        'border' : 'none'
+                    }
+                ),
+            ]
+        ),
+                
+        dbc.Col(
+            [
+                dbc.Card([
+                    dbc.CardImg(
+                        src = "/assets/tableau_demo.png",
+                        top=True,
+                        style = {
+                            "width" : "330px",
+                            "height": "220px"
+                        },
+                        className = 'align-self-center'
+                    ),
+                    dbc.CardBody([
+                        dbc.Button(
+                            "Customized Visualizations",
+                            href='/apps/IndividualStates'
+                        )
+                    ], className = 'align-self-center')
+                ],
+                    style = {
+                        "width" : "30rem",
+                        'margin-left' : 'auto',
+                        'margin-right' : 'auto',
                         'border' : 'none'
                     }
                 ),

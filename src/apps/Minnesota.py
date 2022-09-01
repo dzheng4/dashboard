@@ -12,8 +12,10 @@ from app import app
 from data_repo import minnesota_vaccination_df
 import json
 from urllib.request import urlopen
+from apps import templates
 
 layout = html.Div([
+    templates.createMenu(),
     dbc.Row(
         dbc.Col(
             html.Table(
@@ -95,6 +97,8 @@ layout = html.Div([
     #         ]), width = 12
     #     )
     # )
+
+    templates.backHome()
 
 
 ])

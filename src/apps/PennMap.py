@@ -14,12 +14,14 @@ import json
 from urllib.request import urlopen
 import requests
 import csv
+from apps import templates
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../states_data/PA").resolve()
 
 layout = html.Div([
+    templates.createMenu(),
     # All elements from the top of the page
     dbc.Row([
         dbc.Col(
@@ -80,6 +82,8 @@ layout = html.Div([
         )
     ),
 
+
+    templates.backHome()
 
 
 ])

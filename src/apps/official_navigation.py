@@ -68,6 +68,16 @@ layout = html.Div([
         ),
     ),
 
+
+    dbc.Row(
+        dbc.Col([
+            dbc.Button(
+                'Back',
+                href='/'
+            )
+        ], align = 'center', className = 'footerbottom')
+    )
+
     
 ])
 
@@ -109,7 +119,7 @@ def update_graph(clickData):
     )
 
     fig2.update_layout(
-        title_text='State Official Website Navigation',
+        title_text='Navigation to States\' Official Website',
         geo_scope='usa'
     )
 
