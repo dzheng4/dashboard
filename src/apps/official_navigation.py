@@ -10,6 +10,7 @@ import pathlib
 from app import app
 import json
 from urllib.request import urlopen
+from apps import templates
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
@@ -69,14 +70,7 @@ layout = html.Div([
     ),
 
 
-    dbc.Row(
-        dbc.Col([
-            dbc.Button(
-                'Back',
-                href='/'
-            )
-        ], align = 'center', className = 'footerbottom')
-    )
+    templates.backHome()
 
     
 ])
