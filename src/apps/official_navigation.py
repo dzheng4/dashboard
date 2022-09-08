@@ -70,9 +70,11 @@ layout = html.Div([
     ),
 
 
-    templates.backHome()
+    templates.backHome(),
 
-    
+
+    templates.contact_footer()
+
 ])
 
 

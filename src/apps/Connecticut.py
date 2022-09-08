@@ -1,16 +1,12 @@
 from datetime import datetime
-from tokenize import group
-from flask import g
 import pandas as pd
 import numpy as np
-import json
 from dash import dcc, html, Input, Output, State, callback
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pathlib
 from app import app
 from data_repo import connecticut_df
-import json
 from urllib.request import urlopen
 from apps import templates
 

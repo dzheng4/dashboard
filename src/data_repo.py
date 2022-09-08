@@ -56,6 +56,10 @@ maryland_vaccination_df = load_data('states_data/MD/8_11_2022/Maryland_Daily_Vac
 minnesota_vaccination_df = load_data('states_data/MN/8_10_2022/Doses Administered By Week_tcm1148-513629.csv')
 
 
+### cdc data
+cdc_df = load_data('country_data/COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
+
+
 
 path = "fips2county.tsv"
 PATH = pathlib.Path(__file__).parent

@@ -1,6 +1,7 @@
 from dash import html, dcc
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
+from apps import templates
 
 
 layout = html.Div([
@@ -24,7 +25,7 @@ layout = html.Div([
                     dbc.CardBody([
                         dbc.Button(
                             "Consistent Datasets",
-                            href='/apps/official_navigation'
+                            href='/apps/CDC'
                         )
                     ], className = 'align-self-center')
                 ],
@@ -97,32 +98,72 @@ layout = html.Div([
         ),
     ]),
 
-    dbc.Row(
-        dbc.Col([
-            html.Footer(
-                "ATLAS @ North Carolina State University",
-                style = {
-                    'font-size' : '10px'
-                }
-            ),
-            html.Footer(
-                "Dr. Leila Hajibabai, Dr. Ali Hajbabaie, Asya Atik, Kuangying Li, Dayang Zheng",
-                style = {
-                    'font-size' : '10px'
-                }
-            ),
-            html.Footer(
-                "Department of Industrial & Systems Engineering, North Carolina State University",
-                style = {
-                    'font-size' : '10px'
-                }
-            ),
-            html.Footer(
-                "Department of Civil, Construction and Environmental Engineering, North Carolina State University",
-                style = {
-                    'font-size' : '10px'
-                }
-            )
-        ], align = 'center', className = 'footerbottom')
-    )
+    html.Br(),
+    html.Br(),
+
+    dbc.Row([
+        dbc.Col(
+            [
+                dbc.Card([
+                    dbc.CardImg(
+                        src = "/assets/foia.png",
+                        top=True,
+                        style = {
+                            "width" : "330px",
+                            "height": "220px"
+                        },
+                        className = 'align-self-center'
+                    ),
+                    dbc.CardBody([
+                        dbc.Button(
+                            "FOIA Data Visualizations",
+                            href='https://public.tableau.com/views/COVID-19VaccineShipmentSummary/COVID-19VaccineShipmentSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
+                        )
+                    ], className = 'align-self-center')
+                ],
+                    style = {
+                        "width" : "30rem",
+                        'margin-left' : 'auto',
+                        'margin-right' : 'auto',
+                        'border' : 'none'
+                    }
+                ),
+            ]
+        ),
+
+
+        dbc.Col(
+            [
+                dbc.Card([
+                    dbc.CardImg(
+                        src = "/assets/optimization.jpg",
+                        top=True,
+                        style = {
+                            "width" : "330px",
+                            "height": "220px"
+                        },
+                        className = 'align-self-center'
+                    ),
+                    dbc.CardBody([
+                        dbc.Button(
+                            "Model Explanation",
+                            href='https://public.tableau.com/views/COVID-19VaccineShipmentSummary/COVID-19VaccineShipmentSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
+                        )
+                    ], className = 'align-self-center')
+                ],
+                    style = {
+                        "width" : "30rem",
+                        'margin-left' : 'auto',
+                        'margin-right' : 'auto',
+                        'border' : 'none'
+                    }
+                ),
+            ]
+        ),
+    ]),
+
+    html.Br(),
+    html.Br(),
+
+    templates.contact_footer()
 ])
