@@ -35,18 +35,6 @@ layout = html.Div([
     ),
     # All elements from the top of the page
     dbc.Row([
-        dbc.Col(
-            html.Div(
-                dcc.DatePickerRange(
-                    id = 'my-date-picker-range',
-                    min_date_allowed = datetime(2020, 11, 29),
-                    max_date_allowed = datetime(2022, 7, 31),
-                    initial_visible_month = datetime(2021, 1, 18),
-                    start_date = datetime(2020, 11, 29),
-                    end_date = datetime(2022, 7, 31)
-                ),
-            ), width = 2,
-        ),
 
         ## Button element
         dbc.Col(
@@ -83,11 +71,9 @@ layout = html.Div([
 @app.callback(
     Output('cdc_graph_1','figure'),
     Input('submit', 'n_clicks'),
-    State('my-date-picker-range', 'start_date'), 
-    State('my-date-picker-range', 'end_date'),
 )
 
-def make_figures(n_clicks:int, Start_date: datetime, End_date: datetime):
+def make_figures(n_clicks:int):
     filtered_df = cdc_df
     filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
     recent_date = cdc_df['Date'].max()

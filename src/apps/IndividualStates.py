@@ -31,6 +31,8 @@ layout = html.Div([
     html.Br(),
     html.Br(),
 
+    templates.backHome(),
+
 
     templates.contact_footer()
     
