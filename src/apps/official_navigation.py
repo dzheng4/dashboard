@@ -111,7 +111,10 @@ def update_graph(clickData):
         hover_name='State',
         color='Data Score',
         locationmode='USA-states',
-        color_continuous_scale=px.colors.sequential.BuPu,
+        color_continuous_scale=px.colors.sequential.Tealgrn,
+        labels = {
+            'Data Score' : 'Data Completeness'
+        }
     )
 
     fig2.update_layout(
