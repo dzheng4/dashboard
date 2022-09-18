@@ -167,7 +167,7 @@ layout = html.Div([
             [
                 dbc.Card([
                     dbc.CardImg(
-                        src = "/assets/optimization.jpg",
+                        src = "/assets/oimization.jpg",
                         top=True,
                         style = {
                             "width" : "330px",

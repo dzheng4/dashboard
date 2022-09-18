@@ -6,4 +6,3 @@ pandas==1.4.3
 plotly==5.9.0
 requests==2.28.0
 gunicorn
-base64
