@@ -62,6 +62,77 @@ layout = html.Div([
 
     html.Br(),
 
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.Th("What's available:",
+                    style = {
+                        "margin-left":'50px',
+                        'font-weight': 'bold'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'description')
+            ]),width = {'offset':1},
+        )
+    ),
+
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.Th("Update Frequency:",
+                    style = {
+                        "margin-left":'50px',
+                        'font-weight': 'bold'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'frequency')
+            ]),width = {'offset':1},
+        )
+    ),
+
+    
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.Th("Policy:",
+                    style = {
+                        "margin-left":'50px',
+                        'font-weight': 'bold'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'policy')
+            ]),width = {'offset':1},
+        )
+    ),
+
+    html.Br(),
+    html.Br(),
+    html.Br(),
+
     dbc.Row(
         dbc.Col(
             html.A("Go to official state website", id = 'link', target="_blank"),
@@ -69,8 +140,13 @@ layout = html.Div([
         ),
     ),
 
+    
+
 
     templates.backHome(),
+
+    html.Br(),
+    html.Br(),
 
 
     templates.contact_footer()
@@ -82,16 +158,29 @@ layout = html.Div([
     Output('output-state','figure'),
     Output('link', 'href'),
     Output('state_info','children'),
+    Output('description', 'children'),
+    Output('frequency', 'children'),
+    Output('policy', 'children'),
     Input('output-state', 'clickData')
 )
 
 def update_graph(clickData):
     link = '/'
     state = '/'
+    description = '/'
+    frequency = '/'
+    policy = '/'
     if clickData:
         state = clickData['points'][0]['hovertext']
     
-        link = (summary_df[summary_df['State']==state]).values[0][1]
+        link = (summary_df[summary_df['State']==state]).values[0][19]
+
+        description = (summary_df[summary_df['State']==state]).values[0][20]
+
+        frequency = (summary_df[summary_df['State']==state]).values[0][21]
+
+        policy = (summary_df[summary_df['State']==state]).values[0][25]
+
 
     FipsDF = fips_df
 
@@ -123,4 +212,4 @@ def update_graph(clickData):
     )
 
 
-    return fig2, link, state
+    return fig2, link, state, description, frequency, policy

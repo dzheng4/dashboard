@@ -39,7 +39,9 @@ from app import load_data
 
 penn_retail_df = load_data('states_data/PA/8_11_2022/Pennsylvania_Retail_Pharmacy_Vaccine_Allocation2022_08_11.csv')
 
-summary_df = load_data('states_data/Official_State_COVID_LINKS.csv')
+# summary_df = load_data('states_data/Official_State_COVID_LINKS.csv')
+
+summary_df = load_data('states_data/State_By_State.csv')
 
 illinois_df = load_data('states_data/IL/IL_county.csv')
 
