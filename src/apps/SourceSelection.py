@@ -163,34 +163,34 @@ layout = html.Div([
 
 
 
-        dbc.Col(
-            [
-                dbc.Card([
-                    dbc.CardImg(
-                        src = "/assets/oimization.jpg",
-                        top=True,
-                        style = {
-                            "width" : "330px",
-                            "height": "220px"
-                        },
-                        className = 'align-self-center'
-                    ),
-                    dbc.CardBody([
-                        dbc.Button(
-                            "State Policy",
-                            href='https://public.tableau.com/views/COVID-19VaccineShipmentSummary/COVID-19VaccineShipmentSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
-                        )
-                    ], className = 'align-self-center')
-                ],
-                    style = {
-                        "width" : "30rem",
-                        'margin-left' : 'auto',
-                        'margin-right' : 'auto',
-                        'border' : 'none'
-                    }
-                ),
-            ]
-        ),
+        # dbc.Col(
+        #     [
+        #         dbc.Card([
+        #             dbc.CardImg(
+        #                 src = "/assets/oimization.jpg",
+        #                 top=True,
+        #                 style = {
+        #                     "width" : "330px",
+        #                     "height": "220px"
+        #                 },
+        #                 className = 'align-self-center'
+        #             ),
+        #             dbc.CardBody([
+        #                 dbc.Button(
+        #                     "State Policy",
+        #                     href='https://public.tableau.com/views/COVID-19VaccineShipmentSummary/COVID-19VaccineShipmentSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
+        #                 )
+        #             ], className = 'align-self-center')
+        #         ],
+        #             style = {
+        #                 "width" : "30rem",
+        #                 'margin-left' : 'auto',
+        #                 'margin-right' : 'auto',
+        #                 'border' : 'none'
+        #             }
+        #         ),
+        #     ]
+        # ),
     ]),
 
     html.Br(),
