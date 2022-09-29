@@ -39,10 +39,10 @@ layout = html.Div([
                 dcc.DatePickerRange(
                     id = 'my-date-picker-range',
                     min_date_allowed = datetime(2020, 11, 29),
-                    max_date_allowed = datetime(2022, 7, 31),
+                    max_date_allowed = datetime(2022, 9, 22),
                     initial_visible_month = datetime(2021, 1, 18),
                     start_date = datetime(2020, 11, 29),
-                    end_date = datetime(2022, 7, 31)
+                    end_date = datetime(2022, 9, 22)
                 ),
             ), width = 2,
         ),

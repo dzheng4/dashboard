@@ -1,0 +1,18 @@
+Age group,year,week,case_definition,White,Black/African American,American Indian,Asian/Pacific Islander,Multiracial,Hispanic,webDate
+12+,2022,36,At least one vaccine dose,80.39%,6.44%,0.90%,6.09%,0.99%,5.19%,9/16/2022
+18-Dec,2022,36,At least one vaccine dose,66.69%,10.32%,1.42%,9.42%,2.22%,9.93%,9/16/2022
+19-44,2022,36,At least one vaccine dose,72.70%,8.50%,1.09%,8.80%,1.37%,7.54%,9/16/2022
+45-64,2022,36,At least one vaccine dose,83.27%,6.04%,0.86%,4.95%,0.68%,4.20%,9/16/2022
+5+,2022,36,At least one vaccine dose,79.68%,6.57%,0.94%,6.37%,1.10%,5.35%,9/16/2022
+11-May,2022,36,At least one vaccine dose,66.81%,9.03%,1.51%,11.31%,3.05%,8.28%,9/16/2022
+65+,2022,36,At least one vaccine dose,92.94%,2.55%,0.51%,2.36%,0.37%,1.28%,9/16/2022
+12+,2022,36,Completed vaccine series,81.05%,6.14%,0.87%,6.01%,0.97%,4.95%,9/16/2022
+18-Dec,2022,36,Completed vaccine series,67.74%,9.63%,1.36%,9.49%,2.21%,9.58%,9/16/2022
+19-44,2022,36,Completed vaccine series,73.49%,8.10%,1.04%,8.77%,1.36%,7.24%,9/16/2022
+45-64,2022,36,Completed vaccine series,83.67%,5.87%,0.84%,4.87%,0.68%,4.07%,9/16/2022
+5+,2022,36,Completed vaccine series,80.42%,6.24%,0.90%,6.28%,1.08%,5.09%,9/16/2022
+11-May,2022,36,Completed vaccine series,68.50%,8.01%,1.35%,11.38%,3.03%,7.73%,9/16/2022
+65+,2022,36,Completed vaccine series,93.09%,2.51%,0.51%,2.31%,0.37%,1.21%,9/16/2022
+18-Dec,2022,36,Up to date vaccine doses,71.24%,6.75%,1.28%,10.20%,2.32%,8.21%,9/16/2022
+19-44,2022,36,Up to date vaccine doses,77.35%,5.27%,0.99%,9.35%,1.37%,5.67%,9/16/2022
+11-May,2022,36,Up to date vaccine doses,NaN %,NaN %,NaN %,NaN %,NaN %,NaN %,9/16/2022

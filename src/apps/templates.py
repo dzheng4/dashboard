@@ -49,7 +49,7 @@ def createMenu():
                     "North Carolina", href="https://public.tableau.com/views/NC_Demographics/NorthCarolinaVaccinationStatusSummary?:language=en-US&:display_count=n&:origin=viz_share_link", target="_blank"
                 ),
                 dbc.DropdownMenuItem(
-                    "Texas", href="https://public.tableau.com/shared/D4N655QT3?:display_count=n&:origin=viz_share_link", target="_blank"
+                    "Texas", href="https://public.tableau.com/shared/6W2NYPWFN?:display_count=n&:origin=viz_share_link", target="_blank"
                 ),
                 dbc.DropdownMenuItem(
                     "Delaware", href="https://public.tableau.com/shared/39DFRRWZS?:display_count=n&:origin=viz_share_link", target="_blank"
