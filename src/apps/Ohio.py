@@ -130,7 +130,8 @@ def make_figures(n_clicks:int, Start_date: datetime, End_date: datetime):
     fig2 = px.bar(
         county_df,
         x = 'county',
-        y = 'vaccines_completed'
+        y = 'vaccines_completed',
+        title = 'County Level Number of Vaccines Completed'
     )
 
     # fig2 = px.line(
