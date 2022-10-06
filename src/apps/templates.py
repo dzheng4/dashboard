@@ -40,6 +40,12 @@ def createMenu():
                     "Minnesota", href="/apps/Minnesota"
                 ),
                 dbc.DropdownMenuItem(
+                    "California", href="/apps/California"
+                ),
+                dbc.DropdownMenuItem(
+                    "Ohio", href="/apps/Ohio"
+                ),
+                dbc.DropdownMenuItem(
                     "Michigan", href="https://public.tableau.com/views/Michigan_COVID19_Dashboard/MichiganDashboard?:language=en-US&:display_count=n&:origin=viz_share_link", target="_blank"
                 ),
                 dbc.DropdownMenuItem(

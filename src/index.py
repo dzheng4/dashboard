@@ -7,7 +7,7 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import page01, official_navigation, Illinois, NewYork, PennMap, Connecticut, Maryland, Minnesota, SourceSelection, IndividualStates, CDC
+from apps import page01, official_navigation, Illinois, NewYork, PennMap, Connecticut, Maryland, Minnesota, SourceSelection, IndividualStates, CDC, California, Ohio
 
 
 
@@ -78,6 +78,10 @@ def display_page(pathname):
         return Minnesota.layout
     if pathname == '/apps/CDC':
         return CDC.layout
+    if pathname == '/apps/California':
+        return California.layout
+    if pathname == '/apps/Ohio':
+        return Ohio.layout
     # if pathname == '/apps/model':
     #     return model.layout
 

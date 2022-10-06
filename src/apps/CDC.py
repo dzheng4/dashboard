@@ -43,7 +43,8 @@ layout = html.Div([
                     'Submit',
                     id = 'submit',
                     style = {
-                        'background-color' : '#F56262'    
+                        'background-color' : '#F56262',
+                        'display' : 'none' 
                     }
                 )
             ), width = 3
@@ -94,6 +95,7 @@ def make_figures(n_clicks:int):
         title_text='Cumulative Distributed Doses As Of ' + recent_date.strftime("%m/%d/%Y"),
         geo_scope='usa'
     )
+
     
     
     return fig1

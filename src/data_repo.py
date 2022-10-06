@@ -53,6 +53,10 @@ maryland_hospital_df = load_data('states_data/MD/9_22_2022/Maryland_Hospital_Sta
 
 maryland_vaccination_df = load_data('states_data/MD/9_22_2022/Maryland_Daily_Vaccinations2022_09_22.csv')
 
+california_df = load_data('states_data/CA/10_5_2022/covid19vaccinesshipped_delivered_onhand.csv')
+
+ohio_df = load_data('states_data/OH/9_28_2022/Ohio_Vaccine_Summary2022_09_28.csv')
+
 ## Minnesota file name different every time (Manual)
 ## Need to delete first row (Because date column not valid)
 minnesota_vaccination_df = load_data('states_data/MN/9_28_2022/Doses Administered By Week_tcm1148-513629.csv')
