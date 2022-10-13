@@ -61,6 +61,49 @@ layout = html.Div([
         )
     ),
 
+    html.Br(),
+
+    dbc.Row(
+        dcc.Dropdown(
+            options = ['MP', 'VA', 'BP2', 'WA', 'WY', 'NC', 'DC', 'MI', 'AZ', 'NJ', 'LA', 'IL', 'IA', 'MD',
+                        'OH', 'FL', 'VA2', 'MN', 'MS', 'WV', 'SC', 'PR', 'HI', 'MA', 'RI', 'GA', 'NM', 'IN',
+                        'WI', 'CT', 'VT', 'SD', 'VI', 'UT', 'OR', 'DE', 'KS', 'OK', 'CO', 'MO', 'MH', 'FM',
+                        'CA', 'MT', 'ND', 'ID', 'NH', 'PA', 'ME', 'TN', 'NE', 'IH2', 'KY', 'AK', 'NV', 'AS',
+                        'TX', 'AR', 'DD2', 'AL', 'GU', 'NY', 'PW'],
+            value = 'NC',
+            id = 'state_dropdown'
+        )
+    ),
+
+    html.Br(),
+    html.Br(),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                dcc.Graph(
+                    id = 'state_graph1'
+                )
+            ]), width = 12
+        )
+    ),
+    html.Br(),
+    html.Br(),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                dcc.Graph(
+                    id = 'state_graph2'
+                )
+            ]), width = 12
+        )
+    ),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+
+
 
 
 
@@ -71,10 +114,13 @@ layout = html.Div([
 
 @app.callback(
     Output('cdc_graph_1','figure'),
+    Output('state_graph1', 'figure'),
+    Output('state_graph2', 'figure'),
     Input('submit', 'n_clicks'),
+    Input('state_dropdown', 'value')
 )
 
-def make_figures(n_clicks:int):
+def make_figures(n_clicks:int, state:str):
     filtered_df = cdc_df
     filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
     recent_date = cdc_df['Date'].max()
@@ -96,6 +142,28 @@ def make_figures(n_clicks:int):
         geo_scope='usa'
     )
 
+    state_df = cdc_df[cdc_df['Location'] == state].copy()
+
+    fig2 = px.line(
+        state_df,
+        x = 'Date',
+        y = 'Distributed',
+        title = 'Cumulative Vaccine Distributed Count for ' + state
+    )
+
+    state_df.loc[:, 'Shifted Distributed'] = state_df['Distributed'].shift(1)
+    state_df.loc[:, 'Non Cumulative Distributed'] = state_df['Shifted Distributed'] - state_df['Distributed']
+
+    fig3 = px.line(
+        state_df,
+        x = 'Date',
+        y = 'Non Cumulative Distributed',
+        title = 'Non Cumulative Vaccine Distributed COunt for ' + state
+    )
+
+
+
+
     
     
-    return fig1
+    return fig1, fig2, fig3
