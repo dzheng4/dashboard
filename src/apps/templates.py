@@ -109,3 +109,44 @@ def contact_footer():
     )
 
     return content
+
+def navbar():
+    bar = dbc.NavbarSimple(
+        children=[
+            dbc.NavItem(dbc.NavLink("Home", href="/")),
+            dbc.NavItem(dbc.NavLink("About", href="https://www.or.ncsu.edu/", target="_blank")),
+            dbc.NavItem(dbc.NavLink("Contact Us", href="dzheng4@ncsu.edu", target="_blank"))
+            # dbc.DropdownMenu(
+            #     children=[
+            #         dbc.DropdownMenuItem("More pages", header=True),
+            #         dbc.DropdownMenuItem("Page 2", href="#"),
+            #         dbc.DropdownMenuItem("Page 3", href="#"),
+            #     ],
+            #     nav=True,
+            #     in_navbar=True,
+            #     label="More",
+            # ),
+        ],
+        brand="NCSU COVID-19 Vaccine Data Portal",
+        brand_href="",
+        color="#CC0000",
+        dark=True,
+    )
+    # bar = dbc.Row([
+    #     dbc.Col([
+    #         html.P(),
+    #         html.P("NCSU COVID-19 Vaccine Data Portal",style={'color':'white','margin-left':'3%'}),
+    #         html.P()
+    #     ]),
+    #     dbc.Col(
+    #         dbc.Button(
+    #             "Home",
+    #             href='/',
+    #             color='warning'
+    #         ),style={'color':'#8B0000'}
+    #     )
+    # ])
+    
+    
+
+    return bar

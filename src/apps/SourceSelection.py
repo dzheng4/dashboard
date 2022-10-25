@@ -5,9 +5,14 @@ from apps import templates
 
 
 layout = html.Div([
-    html.Br(),
-    html.Br(),
-    html.Br(),
+    dbc.Row([
+        templates.navbar(),
+
+
+        
+        
+    ], className = 'navigationbar'),
+
     html.Br(),
     dbc.Row([
         dbc.Col(

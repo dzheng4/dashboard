@@ -49,9 +49,9 @@ newyork_df = load_data('states_data/NY/8_14_2022/New York_Vaccination_By_County2
 
 connecticut_df = load_data('states_data/CT/9_22_2022/Connecticut_Vaccination By Week-2022_09_22.csv')
 
-maryland_hospital_df = load_data('states_data/MD/9_22_2022/Maryland_Hospital_Status2022_09_22.csv')
+maryland_hospital_df = load_data('states_data/MD/10_24_2022/Maryland_Hospital_Status2022_10_24.csv')
 
-maryland_vaccination_df = load_data('states_data/MD/9_22_2022/Maryland_Daily_Vaccinations2022_09_22.csv')
+maryland_vaccination_df = load_data('states_data/MD/10_24_2022/Maryland_Daily_Vaccinations2022_10_24.csv')
 
 california_df = load_data('states_data/CA/10_5_2022/covid19vaccinesshipped_delivered_onhand.csv')
 

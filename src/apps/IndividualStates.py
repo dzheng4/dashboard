@@ -6,9 +6,10 @@ from apps import templates
 
 
 layout = html.Div([
-    dbc.Row(
-        templates.createMenu()
-    ),
+    dbc.Row([
+        templates.navbar(),
+        templates.createMenu(),
+    ]),
 
     html.Br(),
     html.Br(),

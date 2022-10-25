@@ -14,31 +14,40 @@ from apps import page01, official_navigation, Illinois, NewYork, PennMap, Connec
 app.layout = html.Div([
     # represents the browser address bar and doesn't render anything
     dcc.Location(id='url', refresh=False),
-    dbc.Navbar([
-        html.Div(
-            children=[
-                dbc.Row([
-                    dbc.Col(
-                        dbc.NavbarBrand(
-                            "NCSU COVID DATA PORTAL", 
-                            class_name= 'ms-2', 
-                            style={
-                                'margin-left': 'auto',
-                                'margin-top': '100%',
-                                # 'text-align':'center'
-                            }
-                        ), width = 'auto', align='center'
-                    ),
-                ], className = 'g-0'),
-            ],style=dict(justifyContent='auto')
-        )
-        ],
-        className='start',
-        color = '#CC0000', 
-        dark = True, 
-        # style=dict(display='none'),
-        id='nav'
-    ),
+    # dbc.Navbar([
+    #     html.Div(
+    #         children=[
+    #             dbc.Row([
+    #                 dbc.Col(
+    #                     # dbc.NavbarBrand(
+    #                     #     html.P("NCSU COVID-19 Vaccine Data Portal", ),
+                            
+    #                     #     class_name= 'ms-2', 
+    #                     #     style={
+    #                     #         'margin-left': 'auto',
+    #                     #         'margin-top': '100%',
+    #                     #         # 'text-align':'center'
+    #                     #     }
+    #                     # ), width = 'auto', align='center'
+    #                     html.P("NCSU COVID-19 Vaccine Data Portal")
+    #                 ),
+    #             ], className = 'g-0'),
+    #         ],style=dict(justifyContent='auto')
+    #     )
+    #     ],
+    #     className='start',
+    #     color = '#CC0000', 
+    #     dark = True, 
+    #     # style=dict(display='none'),
+    #     id='nav'
+    # ),
+    # dbc.Row([
+    #     html.P(),
+    #     dbc.Col(
+    #         html.P("NCSU COVID-19 Vaccine Data Portal",style={'color':'white','margin-left':'3%'}),
+    #         # style={'algin-self':'center'}
+    #     ),
+    # ],style = {'display':'flex','background-color':'#CC0000','align-self':'center'}),
 
     
 

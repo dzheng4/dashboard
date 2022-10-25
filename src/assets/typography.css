@@ -15,3 +15,8 @@ html, body {
 .backbutton {
     text-align:center
 }
+
+.navigationbar {
+    display: flex;
+    background-color: #CC0000
+}

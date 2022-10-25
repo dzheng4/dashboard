@@ -17,6 +17,9 @@ PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../states_data").resolve()
 
 layout = html.Div([
+    dbc.Row([
+        templates.navbar()
+    ]),
     
     dbc.Row(
         dbc.Col(

@@ -13,26 +13,36 @@ from data_repo import cdc_df
 
 layout = html.Div([
 
-    dbc.Row(
+    dbc.Row([
+        templates.navbar()
+    ]),
+
+    html.Br(),
+
+    dbc.Row([
         dbc.Col(
-            html.Table(
-                [
-                    html.Tr(
-                        html.H3('CDC Data Dashboard')
-                    )
-                ],
-                style = {
-                    'margin-left': '280px',
-                    'margin-top': '20px',
-                    'margin-bottom': '20px',
-                    'width': '70%',
-                    'border': '2px solid black',
-                    'text-align': 'center',
-                    'font-family': 'Century Gothic'
-                }
-            )
+            width = 1
+        ),
+        dbc.Col(
+            # html.Table(
+            #     [
+            #         html.Tr(
+            #             html.H3('CDC Data Dashboard')
+            #         )
+            #     ],
+            #     style = {
+            #         # 'margin-left': '280px',
+            #         'margin-top': '20px',
+            #         'margin-bottom': '20px',
+            #         # 'width': '70%',
+            #         'border': '2px solid black',
+            #         'text-align': 'center',
+            #         'font-family': 'Century Gothic'
+            #     }
+            # )
+            html.H3('CDC Data Dashboard')
         )
-    ),
+    ]),
     # All elements from the top of the page
     dbc.Row([
 
