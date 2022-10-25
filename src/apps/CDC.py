@@ -20,9 +20,9 @@ layout = html.Div([
     html.Br(),
 
     dbc.Row([
-        dbc.Col(
-            width = 1
-        ),
+        # dbc.Col(
+        #     width = 1
+        # ),
         dbc.Col(
             # html.Table(
             #     [
@@ -40,7 +40,7 @@ layout = html.Div([
             #         'font-family': 'Century Gothic'
             #     }
             # )
-            html.H3('CDC Data Dashboard')
+            html.H3('CDC Data Dashboard'), style={'margin-left':'5%'}
         )
     ]),
     # All elements from the top of the page
