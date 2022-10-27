@@ -113,9 +113,9 @@ def contact_footer():
 def navbar():
     bar = dbc.NavbarSimple(
         children=[
-            dbc.NavItem(dbc.NavLink("Home", href="/")),
-            dbc.NavItem(dbc.NavLink("About", href="https://www.or.ncsu.edu/", target="_blank")),
-            dbc.NavItem(dbc.NavLink("Contact Us", href="dzheng4@ncsu.edu", target="_blank"))
+            dbc.NavItem(dbc.NavLink("Home", href="/"), style = {'text-transform':'uppercase'}),
+            dbc.NavItem(dbc.NavLink("About", href="https://www.or.ncsu.edu/", target="_blank"), style = {'text-transform':'uppercase'}),
+            dbc.NavItem(dbc.NavLink("Contact Us", href="dzheng4@ncsu.edu", target="_blank"), style = {'text-transform':'uppercase'})
             # dbc.DropdownMenu(
             #     children=[
             #         dbc.DropdownMenuItem("More pages", header=True),
@@ -131,6 +131,9 @@ def navbar():
         brand_href="",
         color="#CC0000",
         dark=True,
+        style = {
+            'text-transform':'None',
+        }
     )
     # bar = dbc.Row([
     #     dbc.Col([
