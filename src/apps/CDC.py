@@ -156,39 +156,33 @@ layout = html.Div([
                 )
             ]),
 
-            dbc.Row(
+            dbc.Row([
                 dbc.Col(
                     dcc.Graph(
                         id = 'cdc_graph_2'
-                    )
-                )
-            ),
-
-            dbc.Row(
+                    ), width = 6
+                ),
                 dbc.Col(
                     dcc.Graph(
                         id = 'cdc_graph_3'
-                    )
+                    ), width = 6
                 )
-            ),
+            ]),
         ]
     ),
 
-    dbc.Row(
+    dbc.Row([
         dbc.Col(
             dcc.Graph(
                 id = 'cdc_graph_4'
-            )
-        )
-    ),
-
-    dbc.Row(
+            ), width = 6
+        ),
         dbc.Col(
             dcc.Graph(
                 id = 'cdc_graph_5'
-            )
+            ), width = 6
         )
-    ),
+    ]),
 
     html.Br(),
 
