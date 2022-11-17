@@ -127,12 +127,35 @@ layout = html.Div([
         ),
     ], className = "g-0"), #className = "g-0" sets the column gutter size to 0. This removes column padding.
     
-    dbc.Row(
-        dbc.Col(
-            dcc.Graph(
-                id = 'cdc_graph_1'
-            )
-        )
+    dcc.Loading(
+        children = [
+            dbc.Row(
+                dbc.Col(
+                    dcc.Graph(
+                        id = 'cdc_graph_1'
+                    )
+                )
+            ),
+            dbc.Row([
+                dbc.Col(
+                    width = 3
+                ),
+                dbc.Col(
+                    dbc.Toast(
+                        [
+                            html.P("Scroll up/down in order to zoom in/out. Double-click anywhere on the map to reset the graph size.")
+                        ],
+                        header = 'Tips',
+                        icon = 'primary',
+                        dismissable=True,
+                        is_open=True
+                    )
+                ),
+                dbc.Col(
+                    width = 3
+                )
+            ])
+        ]
     ),
 
     html.Br(),
@@ -168,27 +191,43 @@ layout = html.Div([
                     ), width = 6
                 )
             ]),
+
+            dbc.Row([
+                dbc.Col(
+                    dcc.Graph(
+                        id = 'cdc_graph_4'
+                    ), width = 6
+                ),
+                dbc.Col(
+                    dcc.Graph(
+                        id = 'cdc_graph_5'
+                    ), width = 6
+                )
+            ]),
         ]
     ),
 
-    dbc.Row([
-        dbc.Col(
-            dcc.Graph(
-                id = 'cdc_graph_4'
-            ), width = 6
-        ),
-        dbc.Col(
-            dcc.Graph(
-                id = 'cdc_graph_5'
-            ), width = 6
-        )
-    ]),
-
+    html.Br(),
+    html.Br(),
     html.Br(),
 
     dbc.Row([
         dbc.Col(
             html.P("Please select a state in the dropdown"), style={'padding-left':'4%'}
+        ),
+        dbc.Col(
+            dbc.Toast(
+                [
+                    html.P("Below graphs are going to render after a specific state is selected.")
+                ],
+                header = 'Tips',
+                icon = 'primary',
+                dismissable=True,
+                is_open=True
+            )
+        ),
+        dbc.Col(
+            width = 2
         )
     ]),
 
@@ -248,18 +287,47 @@ layout = html.Div([
 
 @app.callback(
     Output('cdc_graph_1','figure'),
+    Input('submit', 'n_clicks'),
+)
+
+def render_overall(n_clicks:int):
+    filtered_df = cdc_df.copy()
+    filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
+    recent_date = cdc_df['Date'].max()
+
+    filtered_df = filtered_df[filtered_df['Date'] == recent_date]
+    filtered_df = filtered_df[filtered_df['Location'] != 'US']
+
+
+
+    cdc_fig1 = px.choropleth(
+        filtered_df,
+        locations = 'Location',
+        hover_name = 'Location',
+        color = 'Series_Complete_Pop_Pct',
+        locationmode = 'USA-states',
+        color_continuous_scale=px.colors.sequential.BuPu,
+    )
+
+    cdc_fig1.update_layout(
+        title_text='Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y"),
+        geo_scope='usa'
+    )
+
+    return cdc_fig1
+
+@app.callback(
     Output('cdc_graph_2','figure'),
     Output('cdc_graph_3','figure'),
     Output('cdc_graph_4','figure'),
     Output('cdc_graph_5','figure'),
     Output('state_graph1', 'figure'),
     Output('state_graph2', 'figure'),
-    Input('submit', 'n_clicks'),
     Input('state_dropdown', 'value'),
     Input('vaccine_type_dropdown','value')
 )
 
-def make_figures(n_clicks:int, state:str, type:str):
+def make_figures(state:str, type:str):
     type_key = '_' + type
     if type == 'All':
         type = ' '
@@ -380,4 +448,4 @@ def make_figures(n_clicks:int, state:str, type:str):
 
     
     
-    return cdc_fig1, cdc_fig2, cdc_fig3, cdc_fig4, cdc_fig5, fig2, fig3
+    return cdc_fig2, cdc_fig3, cdc_fig4, cdc_fig5, fig2, fig3
