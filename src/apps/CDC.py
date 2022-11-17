@@ -143,7 +143,7 @@ layout = html.Div([
                 dbc.Col(
                     dbc.Toast(
                         [
-                            html.P("Scroll up/down in order to zoom in/out. Double-click anywhere on the map to reset the graph size.")
+                            html.P("Scroll up/down in the map area to zoom in/out. Double-click anywhere on the map to reset the graph size.")
                         ],
                         header = 'Tips',
                         icon = 'primary',
@@ -215,20 +215,6 @@ layout = html.Div([
         dbc.Col(
             html.P("Please select a state in the dropdown"), style={'padding-left':'4%'}
         ),
-        dbc.Col(
-            dbc.Toast(
-                [
-                    html.P("Below graphs are going to render after a specific state is selected.")
-                ],
-                header = 'Tips',
-                icon = 'primary',
-                dismissable=True,
-                is_open=True
-            )
-        ),
-        dbc.Col(
-            width = 2
-        )
     ]),
 
     dbc.Row([
@@ -240,8 +226,25 @@ layout = html.Div([
                 #             'CA', 'MT', 'ND', 'ID', 'NH', 'PA', 'ME', 'TN', 'NE', 'IH2', 'KY', 'AK', 'NV', 'AS',
                 #             'TX', 'AR', 'DD2', 'AL', 'GU', 'NY', 'PW'],
                 options = states_dic,
+                value = 'NC',
                 id = 'state_dropdown'
             ), width = 3, style={'padding-left':'4%'}
+        ),
+        dbc.Col(
+            dbc.Toast(
+                [
+                    html.P("Below graphs are going to render after a specific state is selected (Default North Carolina)."),
+                    html.Br(),
+                    html.P("You may also drag-select an area to zoom in. Double-click anywhere on the graph to reset the graph size.")
+                ],
+                header = 'Tips',
+                icon = 'primary',
+                dismissable=True,
+                is_open=True
+            )
+        ),
+        dbc.Col(
+            width = 2
         )
     ]),
 
@@ -293,7 +296,7 @@ layout = html.Div([
 def render_overall(n_clicks:int):
     filtered_df = cdc_df.copy()
     filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
-    recent_date = cdc_df['Date'].max()
+    recent_date = pd.to_datetime(cdc_df['Date']).max()
 
     filtered_df = filtered_df[filtered_df['Date'] == recent_date]
     filtered_df = filtered_df[filtered_df['Location'] != 'US']
@@ -307,11 +310,14 @@ def render_overall(n_clicks:int):
         color = 'Series_Complete_Pop_Pct',
         locationmode = 'USA-states',
         color_continuous_scale=px.colors.sequential.BuPu,
+        labels = {
+            'Series_Complete_Pop_Pct' : 'Series Complete Percentage'
+        }
     )
 
     cdc_fig1.update_layout(
-        title_text='Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y"),
-        geo_scope='usa'
+        title_text='<b>Vaccine Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y") + '</b>',
+        geo_scope='usa',
     )
 
     return cdc_fig1
@@ -337,9 +343,9 @@ def make_figures(state:str, type:str):
 
     
 
-    filtered_df = cdc_df
+    filtered_df = cdc_df.copy()
     filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
-    recent_date = cdc_df['Date'].max()
+    recent_date = pd.to_datetime(cdc_df['Date']).max()
 
     filtered_df = filtered_df[filtered_df['Date'] == recent_date]
     filtered_df = filtered_df[filtered_df['Location'] != 'US']
@@ -357,7 +363,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig1.update_layout(
-        title_text='Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y"),
+        title_text='<b>Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -371,7 +377,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig2.update_layout(
-        title_text='Cumulative Distributed' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y"),
+        title_text='<b>Cumulative Distributed' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -385,7 +391,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig3.update_layout(
-        title_text='Cumulative Administered' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y"),
+        title_text='<b>Cumulative Administered' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -399,7 +405,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig4.update_layout(
-        title_text='Theoretically Available' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y"),
+        title_text='<b>Theoretically Available' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -413,13 +419,16 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig5.update_layout(
-        title_text= type + 'Theoretically Available Percentage as of ' + recent_date.strftime("%m/%d/%Y"),
+        title_text= '<b>' + type + 'Theoretically Available Percentage as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
     
 
     state_df = cdc_df[cdc_df['Location'] == state].copy()
+
+    state_df['Date'] = pd.to_datetime(state_df['Date'])
+    state_df = state_df.sort_values(by = 'Date')
 
     if not state:
         state = " "
@@ -430,17 +439,18 @@ def make_figures(state:str, type:str):
         state_df,
         x = 'Date',
         y = 'Distributed',
-        title = 'Cumulative Vaccine Distributed Count for ' + state
+        title = '<b>Cumulative Vaccine Distributed Count for ' + state +'</b>'
     )
 
     state_df.loc[:, 'Shifted Distributed'] = state_df['Distributed'].shift(1)
-    state_df.loc[:, 'Non Cumulative Distributed'] = state_df['Shifted Distributed'] - state_df['Distributed']
+    state_df.loc[:, 'Non Cumulative Distributed'] = state_df['Distributed'] - state_df['Shifted Distributed']
+    state_df.loc[state_df['Non Cumulative Distributed'] < 0, 'Non Cumulative Distributed'] = 0
 
     fig3 = px.line(
         state_df,
         x = 'Date',
         y = 'Non Cumulative Distributed',
-        title = 'Non-Cumulative Vaccine Distributed Count for ' + state
+        title = '<b>Non-Cumulative Vaccine Distributed Count for ' + state +'</b>'
     )
 
 

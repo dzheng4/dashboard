@@ -136,6 +136,35 @@ layout = html.Div([
             ]
         ),
 
+        dbc.Col(
+            [
+                dbc.Card([
+                    dbc.CardImg(
+                        src = "/assets/tableau_demo.png",
+                        top=True,
+                        style = {
+                            "width" : "330px",
+                            "height": "220px"
+                        },
+                        className = 'align-self-center'
+                    ),
+                    dbc.CardBody([
+                        dbc.Button(
+                            "Parquet Dataset",
+                            href='https://public.tableau.com/views/Parquet_Dashboard/VaccineAdministrationSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
+                        )
+                    ], className = 'align-self-center')
+                ],
+                    style = {
+                        "width" : "30rem",
+                        'margin-left' : 'auto',
+                        'margin-right' : 'auto',
+                        'border' : 'none'
+                    }
+                ),
+            ]
+        ),
+
 
         dbc.Col(
             [

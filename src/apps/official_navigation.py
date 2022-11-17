@@ -21,24 +21,41 @@ layout = html.Div([
         templates.navbar()
     ]),
     
-    dbc.Row(
+    dbc.Row([
         dbc.Col(
             html.Div([
                 dcc.Graph(
                     id = 'output-state'
                 )
-            ]), width = 12
-        )
-    ),
+            ])
+        ),
+    ]),
+
+    dbc.Row([
+        dbc.Col(width = 1),
+        dbc.Col(
+            dbc.Toast(
+                [
+                    html.P("Hover over each state to view the data completeness score."),
+                    html.P("Then click on the state of interest, you will get an overview of what's available for this state."),
+                    html.P("Finally, the link at the bottom will take you to the official website of this state.")
+                ],
+                header = 'Tips',
+                icon = 'primary',
+                dismissable=True,
+                is_open=True
+            )
+        ),
+    ]),
 
     dbc.Row([
         dbc.Col(
             html.Div([
                 html.Br(),
-                html.Th("You selected:",
+                html.P("State:",
                     style = {
-                        "margin-left":'50px',
-                        'font-weight': 'bold'
+                        # "margin-left":'50px',
+                        'font-weight': '900'
                     }
                 ),
             ]),width = {'offset':1},
@@ -69,10 +86,10 @@ layout = html.Div([
         dbc.Col(
             html.Div([
                 html.Br(),
-                html.Th("What's available:",
+                html.P("What's available:",
                     style = {
-                        "margin-left":'50px',
-                        'font-weight': 'bold'
+                        # "margin-left":'50px',
+                        'font-weight': '900'
                     }
                 ),
             ]),width = {'offset':1},
@@ -91,10 +108,10 @@ layout = html.Div([
         dbc.Col(
             html.Div([
                 html.Br(),
-                html.Th("Update Frequency:",
+                html.P("Update Frequency:",
                     style = {
-                        "margin-left":'50px',
-                        'font-weight': 'bold'
+                        # "margin-left":'50px',
+                        'font-weight': '900'
                     }
                 ),
             ]),width = {'offset':1},
@@ -114,10 +131,10 @@ layout = html.Div([
         dbc.Col(
             html.Div([
                 html.Br(),
-                html.Th("Policy:",
+                html.P("Policy:",
                     style = {
-                        "margin-left":'50px',
-                        'font-weight': 'bold'
+                        # "margin-left":'50px',
+                        'font-weight': '900'
                     }
                 ),
             ]),width = {'offset':1},
@@ -210,7 +227,7 @@ def update_graph(clickData):
     )
 
     fig2.update_layout(
-        title_text='Navigation to States\' Official Website',
+        title_text='<b>Navigation to States\' Official Website</b>',
         geo_scope='usa'
     )
 
