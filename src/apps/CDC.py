@@ -435,18 +435,22 @@ def make_figures(state:str, type:str):
     else:
         state = states_dic[state]
 
-    fig2 = px.line(
+    state_fig1 = px.line(
         state_df,
         x = 'Date',
         y = 'Distributed',
         title = '<b>Cumulative Vaccine Distributed Count for ' + state +'</b>'
     )
 
+    state_fig1.update_layout(
+        template = 'plotly_white'
+    )
+
     state_df.loc[:, 'Shifted Distributed'] = state_df['Distributed'].shift(1)
     state_df.loc[:, 'Non Cumulative Distributed'] = state_df['Distributed'] - state_df['Shifted Distributed']
     state_df.loc[state_df['Non Cumulative Distributed'] < 0, 'Non Cumulative Distributed'] = 0
 
-    fig3 = px.line(
+    state_fig2 = px.line(
         state_df,
         x = 'Date',
         y = 'Non Cumulative Distributed',
@@ -454,8 +458,12 @@ def make_figures(state:str, type:str):
     )
 
 
+    state_fig2.update_layout(
+        template = 'plotly_white'
+    )
+
 
 
     
     
-    return cdc_fig2, cdc_fig3, cdc_fig4, cdc_fig5, fig2, fig3
+    return cdc_fig2, cdc_fig3, cdc_fig4, cdc_fig5, state_fig1, state_fig2
