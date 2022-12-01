@@ -11,6 +11,7 @@ from app import app
 import json
 from urllib.request import urlopen
 from apps import templates
+from data_repo import policy_df
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
@@ -149,6 +150,118 @@ layout = html.Div([
         )
     ),
 
+
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.P("State of Emergency Declaration:",
+                    style = {
+                        # "margin-left":'50px',
+                        'font-weight': '900'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'declaration')
+            ]),width = {'offset':1},
+        )
+    ),
+
+
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.P("Travel Restrictions:",
+                    style = {
+                        # "margin-left":'50px',
+                        'font-weight': '900'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'travel_restrictions')
+            ]),width = {'offset':1},
+        )
+    ),
+
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.P("Mass Gathering Restrictions:",
+                    style = {
+                        # "margin-left":'50px',
+                        'font-weight': '900'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'gathering_restrictions')
+            ]),width = {'offset':1},
+        )
+    ),
+
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.P("Mask Mandates:",
+                    style = {
+                        # "margin-left":'50px',
+                        'font-weight': '900'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'mask_mandates')
+            ]),width = {'offset':1},
+        )
+    ),
+
+    dbc.Row([
+        dbc.Col(
+            html.Div([
+                html.Br(),
+                html.P("Vaccine Mandates:",
+                    style = {
+                        # "margin-left":'50px',
+                        'font-weight': '900'
+                    }
+                ),
+            ]),width = {'offset':1},
+        ),
+    ]),
+
+    dbc.Row(
+        dbc.Col(
+            html.Div([
+                html.P(id = 'vaccine_mandates')
+            ]),width = {'offset':1},
+        )
+    ),
+
     html.Br(),
     html.Br(),
     html.Br(),
@@ -181,6 +294,11 @@ layout = html.Div([
     Output('description', 'children'),
     Output('frequency', 'children'),
     Output('policy', 'children'),
+    Output('declaration', 'children'),
+    Output('travel_restrictions', 'children'),
+    Output('gathering_restrictions', 'children'),
+    Output('mask_mandates', 'children'),
+    Output('vaccine_mandates', 'children'),
     Input('output-state', 'clickData')
 )
 
@@ -231,5 +349,23 @@ def update_graph(clickData):
         geo_scope='usa'
     )
 
+    declaration = '/'
+    travel_restrictions = '/'
+    gathering_restrictions = '/'
+    mask_mandates = '/'
+    vaccine_mandates = '/'
 
-    return fig2, link, state, description, frequency, policy
+
+    if clickData:
+        state = clickData['points'][0]['hovertext']
+        filtered_state_df = policy_df[policy_df['State'] == state]
+
+        declaration = filtered_state_df.values[0][1]
+        travel_restrictions = filtered_state_df.values[0][2]
+        gathering_restrictions = filtered_state_df.values[0][3]
+        mask_mandates = filtered_state_df.values[0][4]
+        vaccine_mandates = filtered_state_df.values[0][5]
+
+
+
+    return fig2, link, state, description, frequency, policy, declaration, travel_restrictions, gathering_restrictions, mask_mandates, vaccine_mandates

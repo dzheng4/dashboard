@@ -66,6 +66,10 @@ minnesota_vaccination_df = load_data('states_data/MN/9_28_2022/Doses Administere
 cdc_df = load_data('country_data/COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
 
 
+## Policy data from "multi"
+policy_df = load_data('states_data/state_policy.csv')
+
+
 
 path = "fips2county.tsv"
 PATH = pathlib.Path(__file__).parent
