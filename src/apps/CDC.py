@@ -134,7 +134,7 @@ layout = html.Div([
                     dcc.Graph(
                         id = 'cdc_graph_1'
                     )
-                )
+                ),
             ),
             dbc.Row([
                 dbc.Col(
@@ -166,6 +166,8 @@ layout = html.Div([
         )
     ]),
 
+    html.Br(),
+
     dcc.Loading(
         children = [
             dbc.Row([
@@ -183,25 +185,27 @@ layout = html.Div([
                 dbc.Col(
                     dcc.Graph(
                         id = 'cdc_graph_2'
-                    ), width = 6
+                    ), style={"border":"3px black solid", "margin-left":"2.5%", "margin-right":"1.25%"}
                 ),
                 dbc.Col(
                     dcc.Graph(
                         id = 'cdc_graph_3'
-                    ), width = 6
+                    ), style={"border":"3px black solid", "margin-left":"1.25%", "margin-right":"2.5%"}
                 )
             ]),
+
+            html.Br(),
 
             dbc.Row([
                 dbc.Col(
                     dcc.Graph(
                         id = 'cdc_graph_4'
-                    ), width = 6
+                    ), style={"border":"3px black solid", "margin-left":"2.5%", "margin-right":"1.25%"}
                 ),
                 dbc.Col(
                     dcc.Graph(
                         id = 'cdc_graph_5'
-                    ), width = 6
+                    ), style={"border":"3px black solid", "margin-left":"1.25%", "margin-right":"2.5%"}
                 )
             ]),
         ]
@@ -259,8 +263,8 @@ layout = html.Div([
                         dcc.Graph(
                             id = 'state_graph1'
                         )
-                    ]), width = 12
-                )
+                    ]), width = 12, 
+                ), style={"border":"4px black solid", "margin-left":"2.5%", "margin-right":"2.5%"}
             ),
             html.Br(),
             html.Br(),
@@ -271,8 +275,8 @@ layout = html.Div([
                         dcc.Graph(
                             id = 'state_graph2'
                         )
-                    ]), width = 12
-                )
+                    ]), width = 12,
+                ), style={"border":"4px black solid", "margin-left":"2.5%", "margin-right":"2.5%"}
             ),
         ]
     ),
@@ -367,6 +371,18 @@ def make_figures(state:str, type:str):
         geo_scope='usa'
     )
 
+    cdc_fig1.update_xaxes(
+        mirror=True,
+        ticks='outside',
+        showline=True,
+    )
+
+    cdc_fig1.update_yaxes(
+        mirror=True,
+        ticks='outside',
+        showline=True,
+    )
+
     cdc_fig2 = px.choropleth(
         filtered_df,
         locations = 'Location',
@@ -445,6 +461,20 @@ def make_figures(state:str, type:str):
     state_fig1.update_layout(
         template = 'plotly_white'
     )
+
+    # state_fig1.update_xaxes(
+    #     showline=True, 
+    #     linewidth=2, 
+    #     linecolor='black', 
+    #     mirror=True
+    # )
+
+    # state_fig1.update_yaxes(
+    #     showline=True, 
+    #     linewidth=2, 
+    #     linecolor='black', 
+    #     mirror=True
+    # )
 
     state_df.loc[:, 'Shifted Distributed'] = state_df['Distributed'].shift(1)
     state_df.loc[:, 'Non Cumulative Distributed'] = state_df['Distributed'] - state_df['Shifted Distributed']
