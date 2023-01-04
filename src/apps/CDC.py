@@ -492,6 +492,36 @@ def make_figures(state:str, type:str):
         template = 'plotly_white'
     )
 
+    separation_date = pd.to_datetime('2022-06-16')
+
+    state_fig2.add_vline(
+        x = separation_date,
+        line_dash="dash", 
+        line_color="red",
+    )
+
+    state_fig2.add_vrect(
+        x0=state_df['Date'].min(), 
+        x1=separation_date, 
+        annotation_text="Data Aggregated Daily     ", 
+        annotation_position="top right",
+        fillcolor="green", 
+        opacity=0.05, 
+        line_width=0
+    )
+
+    state_fig2.add_vrect(
+        x0=separation_date, 
+        x1=state_df['Date'].max(), 
+        annotation_text="     Data Aggregated Weekly", 
+        annotation_position="top left",
+        fillcolor="orange", 
+        opacity=0.05, 
+        line_width=0
+    )
+
+
+
 
 
     
