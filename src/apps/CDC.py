@@ -184,13 +184,15 @@ layout = html.Div([
             dbc.Row([
                 dbc.Col(
                     dcc.Graph(
-                        id = 'cdc_graph_2'
-                    ), style={"border":"3px black solid", "margin-left":"2.5%", "margin-right":"1.25%"}
+                        id = 'cdc_graph_2',
+                        style={"border":"3px black solid", "margin-left":"2.5%", "margin-right":"1.25%"},
+                    ), width = 6
                 ),
                 dbc.Col(
                     dcc.Graph(
-                        id = 'cdc_graph_3'
-                    ), style={"border":"3px black solid", "margin-left":"1.25%", "margin-right":"2.5%"}
+                        id = 'cdc_graph_3',
+                        style={"border":"3px black solid", "margin-left":"1.25%", "margin-right":"2.5%"},
+                    ), width = 6
                 )
             ]),
 
@@ -199,13 +201,15 @@ layout = html.Div([
             dbc.Row([
                 dbc.Col(
                     dcc.Graph(
-                        id = 'cdc_graph_4'
-                    ), style={"border":"3px black solid", "margin-left":"2.5%", "margin-right":"1.25%"}
+                        id = 'cdc_graph_4',
+                        style={"border":"3px black solid", "margin-left":"2.5%", "margin-right":"1.25%"},
+                    ),  width = 6
                 ),
                 dbc.Col(
                     dcc.Graph(
-                        id = 'cdc_graph_5'
-                    ), style={"border":"3px black solid", "margin-left":"1.25%", "margin-right":"2.5%"}
+                        id = 'cdc_graph_5',
+                        style={"border":"3px black solid", "margin-left":"1.25%", "margin-right":"2.5%"},
+                    ),  width = 6
                 )
             ]),
         ]
