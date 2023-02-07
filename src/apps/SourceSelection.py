@@ -122,7 +122,7 @@ layout = html.Div([
                     dbc.CardBody([
                         dbc.Button(
                             "FOIA Data Visualizations",
-                            href='https://public.tableau.com/views/COVID-19VaccineShipmentSummary/COVID-19VaccineShipmentSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
+                            href='apps/FOIA'
                         )
                     ], className = 'align-self-center')
                 ],
@@ -151,7 +151,7 @@ layout = html.Div([
                     dbc.CardBody([
                         dbc.Button(
                             "Parquet Dataset",
-                            href='https://public.tableau.com/views/Parquet_Dashboard/VaccineAdministrationSummary?:language=en-US&:display_count=n&:origin=viz_share_link'
+                            href='apps/Parquet'
                         )
                     ], className = 'align-self-center')
                 ],
