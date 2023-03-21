@@ -7,10 +7,7 @@ from apps import templates
 layout = html.Div([
     dbc.Row([
         templates.navbar(),
-
-
-        
-        
+             
     ], className = 'navigationbar'),
 
     html.Br(),
@@ -72,41 +69,7 @@ layout = html.Div([
                 ),
             ]
         ),
-                
-        dbc.Col(
-            [
-                dbc.Card([
-                    dbc.CardImg(
-                        src = "/assets/tableau_demo.png",
-                        top=True,
-                        style = {
-                            "width" : "330px",
-                            "height": "220px"
-                        },
-                        className = 'align-self-center'
-                    ),
-                    dbc.CardBody([
-                        dbc.Button(
-                            "Customized Visualizations",
-                            href='/apps/IndividualStates'
-                        )
-                    ], className = 'align-self-center')
-                ],
-                    style = {
-                        "width" : "30rem",
-                        'margin-left' : 'auto',
-                        'margin-right' : 'auto',
-                        'border' : 'none'
-                    }
-                ),
-            ]
-        ),
-    ]),
 
-    html.Br(),
-    html.Br(),
-
-    dbc.Row([
         dbc.Col(
             [
                 dbc.Card([
@@ -135,6 +98,42 @@ layout = html.Div([
                 ),
             ]
         ),
+                
+        # dbc.Col(
+        #     [
+        #         dbc.Card([
+        #             dbc.CardImg(
+        #                 src = "/assets/tableau_demo.png",
+        #                 top=True,
+        #                 style = {
+        #                     "width" : "330px",
+        #                     "height": "220px"
+        #                 },
+        #                 className = 'align-self-center'
+        #             ),
+        #             dbc.CardBody([
+        #                 dbc.Button(
+        #                     "Customized Visualizations",
+        #                     href='/apps/IndividualStates'
+        #                 )
+        #             ], className = 'align-self-center')
+        #         ],
+        #             style = {
+        #                 "width" : "30rem",
+        #                 'margin-left' : 'auto',
+        #                 'margin-right' : 'auto',
+        #                 'border' : 'none'
+        #             }
+        #         ),
+        #     ]
+        # ),
+    ]),
+
+    html.Br(),
+    html.Br(),
+
+    dbc.Row([
+        
 
         dbc.Col(
             [
@@ -195,6 +194,35 @@ layout = html.Div([
             ]
         ),
 
+
+        dbc.Col(
+            [
+                dbc.Card([
+                    dbc.CardImg(
+                        src = "/assets/book.jpg",
+                        top=True,
+                        style = {
+                            "width" : "330px",
+                            "height": "220px"
+                        },
+                        className = 'align-self-center'
+                    ),
+                    dbc.CardBody([
+                        dbc.Button(
+                            "Literature Resources",
+                            href='/apps/IndividualStates'
+                        )
+                    ], className = 'align-self-center')
+                ],
+                    style = {
+                        "width" : "30rem",
+                        'margin-left' : 'auto',
+                        'margin-right' : 'auto',
+                        'border' : 'none'
+                    }
+                ),
+            ]
+        ),
 
 
         # dbc.Col(

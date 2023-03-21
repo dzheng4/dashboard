@@ -28,3 +28,45 @@ html, body {
     margin-right: 0px;
     margin-left: 0px;
 }
+
+
+/**Added on 3/20 */
+  .navbar {
+    background-color: #77cc00;
+  }
+  
+  /* Navbar link color */
+  .navbar a {
+    color: #ffffff;
+  }
+  
+  /* Header color */
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+  }
+  
+  /* Card background color */
+  .card {
+    background-color: #ffffff;
+  }
+  
+  /* Card header color */
+  .card-header {
+    background-color: #CC0000;
+    color: #ffffff;
+  }
+  
+  
+  /* Button background color */
+  .btn {
+    background-color: #391610;
+    color: #ffffff;
+    border-color: #6d180b;
+  }
+  
+  /* Button hover background color */
+  .btn:hover {
+    background-color: #CC0000;
+    color: #ffffff;
+    border-color: #CC0000;
+  }
