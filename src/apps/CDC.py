@@ -101,7 +101,7 @@ layout = html.Div([
             # )
             dbc.Card(
                 dbc.CardBody(
-                    html.H3('CDC Data Dashboard', style={'text-transform':'None','color':'white'}), style={'margin-left':'4%'}
+                    html.H3('State Level Vaccine Distribution and Administration Across the US', style={'text-transform':'None','color':'white'}), style={'margin-left':'4%'}
                 ),
                 color="dark"
             )
