@@ -345,7 +345,7 @@ def update_graph(clickData):
     )
 
     fig2.update_layout(
-        title_text='<b>Navigation to States\' Official Website</b>',
+        title_text='<b>Navigate to Official State Health Departments</b>',
         geo_scope='usa'
     )
 

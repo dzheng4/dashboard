@@ -26,37 +26,8 @@ layout = html.Div([
                     ),
                     dbc.CardBody([
                         dbc.Button(
-                            "Consistent Datasets",
+                            "State Level Vaccine Dist./Admin. Data",
                             href='/apps/CDC'
-                        )
-                    ], className = 'align-self-center')
-                ],
-                    style = {
-                        "width" : "30rem",
-                        'margin-left' : 'auto',
-                        'margin-right' : 'auto',
-                        'border' : 'none'
-                    }
-                ),
-            ]
-        ),
-
-        dbc.Col(
-            [
-                dbc.Card([
-                    dbc.CardImg(
-                        src = "/assets/individual_states.jpg",
-                        top=True,
-                        style = {
-                            "width" : "330px",
-                            "height": "220px"
-                        },
-                        className = 'align-self-center'
-                    ),
-                    dbc.CardBody([
-                        dbc.Button(
-                            "Official Websites",
-                            href='/apps/official_navigation'
                         )
                     ], className = 'align-self-center')
                 ],
@@ -84,7 +55,7 @@ layout = html.Div([
                     ),
                     dbc.CardBody([
                         dbc.Button(
-                            "FOIA Data Visualizations",
+                            "Vaccine Shipment/Provider",
                             href='apps/FOIA'
                         )
                     ], className = 'align-self-center')
@@ -98,6 +69,39 @@ layout = html.Div([
                 ),
             ]
         ),
+
+        dbc.Col(
+            [
+                dbc.Card([
+                    dbc.CardImg(
+                        src = "/assets/tableau_demo.png",
+                        top=True,
+                        style = {
+                            "width" : "330px",
+                            "height": "220px"
+                        },
+                        className = 'align-self-center'
+                    ),
+                    dbc.CardBody([
+                        dbc.Button(
+                            "Vaccine Administration",
+                            href='apps/Parquet'
+                        )
+                    ], className = 'align-self-center')
+                ],
+                    style = {
+                        "width" : "30rem",
+                        'margin-left' : 'auto',
+                        'margin-right' : 'auto',
+                        'border' : 'none'
+                    }
+                ),
+            ]
+        ),
+
+        
+
+        
                 
         # dbc.Col(
         #     [
@@ -133,13 +137,12 @@ layout = html.Div([
     html.Br(),
 
     dbc.Row([
-        
-
+    
         dbc.Col(
             [
                 dbc.Card([
                     dbc.CardImg(
-                        src = "/assets/tableau_demo.png",
+                        src = "/assets/individual_states.jpg",
                         top=True,
                         style = {
                             "width" : "330px",
@@ -149,8 +152,8 @@ layout = html.Div([
                     ),
                     dbc.CardBody([
                         dbc.Button(
-                            "Parquet Dataset",
-                            href='apps/Parquet'
+                            "State Official Websites",
+                            href='/apps/official_navigation'
                         )
                     ], className = 'align-self-center')
                 ],
@@ -163,6 +166,9 @@ layout = html.Div([
                 ),
             ]
         ),
+        
+
+        
 
 
         dbc.Col(

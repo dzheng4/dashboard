@@ -324,7 +324,7 @@ def render_overall(n_clicks:int):
     )
 
     cdc_fig1.update_layout(
-        title_text='<b>Vaccine Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y") + '</b>',
+        title_text='<b>Percentage of Population Fully Vaccinated as of ' + recent_date.strftime("%m/%d/%Y") + '</b>',
         geo_scope='usa',
     )
 
@@ -361,31 +361,31 @@ def make_figures(state:str, type:str):
     filtered_df['Available'+type_key] = filtered_df['Distributed'+type_key] - filtered_df['Administered'+type_key]
     filtered_df['Available Percentage'+type_key] = filtered_df['Available'+type_key] / filtered_df['Distributed'+type_key] * 100
 
-    cdc_fig1 = px.choropleth(
-        filtered_df,
-        locations = 'Location',
-        hover_name = 'Location',
-        color = 'Series_Complete_Pop_Pct',
-        locationmode = 'USA-states',
-        color_continuous_scale=px.colors.sequential.BuPu,
-    )
+    # cdc_fig1 = px.choropleth(
+    #     filtered_df,
+    #     locations = 'Location',
+    #     hover_name = 'Location',
+    #     color = 'Series_Complete_Pop_Pct',
+    #     locationmode = 'USA-states',
+    #     color_continuous_scale=px.colors.sequential.BuPu,
+    # )
 
-    cdc_fig1.update_layout(
-        title_text='<b>Series Complete Percentage as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
-        geo_scope='usa'
-    )
+    # cdc_fig1.update_layout(
+    #     title_text='<b>Percentage of Population Fully Vaccinated as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+    #     geo_scope='usa'
+    # )
 
-    cdc_fig1.update_xaxes(
-        mirror=True,
-        ticks='outside',
-        showline=True,
-    )
+    # cdc_fig1.update_xaxes(
+    #     mirror=True,
+    #     ticks='outside',
+    #     showline=True,
+    # )
 
-    cdc_fig1.update_yaxes(
-        mirror=True,
-        ticks='outside',
-        showline=True,
-    )
+    # cdc_fig1.update_yaxes(
+    #     mirror=True,
+    #     ticks='outside',
+    #     showline=True,
+    # )
 
     cdc_fig2 = px.choropleth(
         filtered_df,
@@ -397,7 +397,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig2.update_layout(
-        title_text='<b>Cumulative Distributed' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text='<b>Cumulative Number of' + type + 'Doses Distributed as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -411,7 +411,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig3.update_layout(
-        title_text='<b>Cumulative Administered' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text='<b>Cumulative Number of' + type + 'Doses Administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -425,7 +425,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig4.update_layout(
-        title_text='<b>Theoretically Available' + type + 'Doses Count as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text='<b>Number of' + type + 'Doses Received But Not Administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -439,7 +439,7 @@ def make_figures(state:str, type:str):
     )
 
     cdc_fig5.update_layout(
-        title_text= '<b>' + type + 'Theoretically Available Percentage as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text= '<b>Percentage of' + type + 'Doses Received But Not Administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
@@ -459,11 +459,12 @@ def make_figures(state:str, type:str):
         state_df,
         x = 'Date',
         y = 'Distributed',
-        title = '<b>Cumulative Vaccine Distributed Count for ' + state +'</b>'
+        title = '<b>Cumulative Number of Distributed Doses in ' + state +'</b>'
     )
 
     state_fig1.update_layout(
-        template = 'plotly_white'
+        template = 'plotly_white',
+        yaxis_title = "Number of Doses",
     )
 
     # state_fig1.update_xaxes(
@@ -488,12 +489,13 @@ def make_figures(state:str, type:str):
         state_df,
         x = 'Date',
         y = 'Non Cumulative Distributed',
-        title = '<b>Non-Cumulative Vaccine Distributed Count for ' + state +'</b>'
+        title = '<b>Number of Daily/Weekly Doses Distributed in ' + state +'</b>'
     )
 
 
     state_fig2.update_layout(
-        template = 'plotly_white'
+        template = 'plotly_white',
+        yaxis_title = "Number of Doses",
     )
 
     separation_date = pd.to_datetime('2022-06-16')
