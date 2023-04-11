@@ -216,7 +216,7 @@ layout = html.Div([
                     dbc.CardBody([
                         dbc.Button(
                             "Literature Resources",
-                            href='/apps/IndividualStates'
+                            href='/apps/LiteratureResources'
                         )
                     ], className = 'align-self-center')
                 ],
