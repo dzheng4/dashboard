@@ -40,11 +40,12 @@ layout = html.Div([
             html.Br(),
             html.Br(),
             html.Center(
-                "Hajibabai, Leila, et al. “Using COVID-19 Data on Vaccine Shipments and Wastage to Inform Modeling and Decision-Making.” Transportation Science, vol. 56, no. 5, 2022, pp. 1135–1147., https://doi.org/10.1287/trsc.2022.1134. ",
+                "Hajibabai, Leila, et al. “Using COVID-19 Data on Vaccine Shipments and Wastage to Inform Modeling and Decision-Making.” Transportation Science, vol. 56, no. 5, 2022, pp. 1135–1147.",
                 # style = {
                 #     'font-size' : '10px'
                 # }
             ),
+            html.A("https://doi.org/10.1287/trsc.2022.1134", id = 'link', href="https://doi.org/10.1287/trsc.2022.1134"),
 
         ], align = 'center', ),
 
