@@ -173,8 +173,8 @@ layout = html.Div([
             dbc.Row([
                 dbc.Col(
                     dcc.Dropdown(
-                        # options = {'All':'', 'Pfizer':'Pfizer','Moderna':'Moderna'},
-                        options = ['All', 'Pfizer','Moderna','Janssen'],
+                        # options = {'All':'', 'pfizer':'pfizer','moderna':'moderna'},
+                        options = ['All', 'pfizer','moderna','janssen'],
                         value = 'All',
                         id = 'vaccine_type_dropdown'
                     ), width = 3, style={'padding-left':'4%'}
@@ -303,23 +303,23 @@ layout = html.Div([
 
 def render_overall(n_clicks:int):
     filtered_df = cdc_df.copy()
-    filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
-    recent_date = pd.to_datetime(cdc_df['Date']).max()
+    filtered_df['date'] = pd.to_datetime(filtered_df['date'])
+    recent_date = pd.to_datetime(cdc_df['date']).max()
 
-    filtered_df = filtered_df[filtered_df['Date'] == recent_date]
-    filtered_df = filtered_df[filtered_df['Location'] != 'US']
+    filtered_df = filtered_df[filtered_df['date'] == recent_date]
+    filtered_df = filtered_df[filtered_df['location'] != 'US']
 
 
 
     cdc_fig1 = px.choropleth(
         filtered_df,
-        locations = 'Location',
-        hover_name = 'Location',
-        color = 'Series_Complete_Pop_Pct',
+        locations = 'location',
+        hover_name = 'location',
+        color = 'series_complete_pop_pct',
         locationmode = 'USA-states',
         color_continuous_scale=px.colors.sequential.BuPu,
         labels = {
-            'Series_Complete_Pop_Pct' : 'Series Complete Percentage'
+            'series_complete_pop_pct' : 'Series Complete Percentage'
         }
     )
 
@@ -352,20 +352,23 @@ def make_figures(state:str, type:str):
     
 
     filtered_df = cdc_df.copy()
-    filtered_df['Date'] = pd.to_datetime(filtered_df['Date'])
-    recent_date = pd.to_datetime(cdc_df['Date']).max()
+    filtered_df['date'] = pd.to_datetime(filtered_df['date'])
+    recent_date = pd.to_datetime(cdc_df['date']).max()
 
-    filtered_df = filtered_df[filtered_df['Date'] == recent_date]
-    filtered_df = filtered_df[filtered_df['Location'] != 'US']
+    filtered_df = filtered_df[filtered_df['date'] == recent_date]
+    filtered_df = filtered_df[filtered_df['location'] != 'US']
 
-    filtered_df['Available'+type_key] = filtered_df['Distributed'+type_key] - filtered_df['Administered'+type_key]
-    filtered_df['Available Percentage'+type_key] = filtered_df['Available'+type_key] / filtered_df['Distributed'+type_key] * 100
+
+    filtered_df['Available'+type_key] = filtered_df['distributed'+type_key] - filtered_df['administered'+type_key]
+    filtered_df['Available Percentage'+type_key] = filtered_df['Available'+type_key] / filtered_df['distributed'+type_key] * 100
+
+
 
     # cdc_fig1 = px.choropleth(
     #     filtered_df,
-    #     locations = 'Location',
-    #     hover_name = 'Location',
-    #     color = 'Series_Complete_Pop_Pct',
+    #     locations = 'location',
+    #     hover_name = 'location',
+    #     color = 'series_complete_pop_pct',
     #     locationmode = 'USA-states',
     #     color_continuous_scale=px.colors.sequential.BuPu,
     # )
@@ -389,66 +392,66 @@ def make_figures(state:str, type:str):
 
     cdc_fig2 = px.choropleth(
         filtered_df,
-        locations = 'Location',
-        hover_name = 'Location',
-        color = 'Distributed' + type_key,
+        locations = 'location',
+        hover_name = 'location',
+        color = 'distributed' + type_key,
         locationmode = 'USA-states',
         color_continuous_scale=px.colors.sequential.YlGnBu,
     )
 
     cdc_fig2.update_layout(
-        title_text='<b>Cumulative Number of' + type + 'Doses Distributed as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text='<b>Cumulative Number of' + type + 'Doses distributed as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
     cdc_fig3 = px.choropleth(
         filtered_df,
-        locations = 'Location',
-        hover_name = 'Location',
-        color = 'Administered' + type_key,
+        locations = 'location',
+        hover_name = 'location',
+        color = 'administered' + type_key,
         locationmode = 'USA-states',
         color_continuous_scale=px.colors.sequential.YlGnBu,
     )
 
     cdc_fig3.update_layout(
-        title_text='<b>Cumulative Number of' + type + 'Doses Administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text='<b>Cumulative Number of' + type + 'Doses administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
     cdc_fig4 = px.choropleth(
         filtered_df,
-        locations = 'Location',
-        hover_name = 'Location',
+        locations = 'location',
+        hover_name = 'location',
         color = 'Available' + type_key,
         locationmode = 'USA-states',
         color_continuous_scale=px.colors.sequential.YlGnBu,
     )
 
     cdc_fig4.update_layout(
-        title_text='<b>Number of' + type + 'Doses Received But Not Administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text='<b>Number of' + type + 'Doses Received But Not administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
     cdc_fig5 = px.choropleth(
         filtered_df,
-        locations = 'Location',
-        hover_name = 'Location',
+        locations = 'location',
+        hover_name = 'location',
         color = 'Available Percentage' + type_key,
         locationmode = 'USA-states',
         color_continuous_scale=px.colors.sequential.YlGnBu,
     )
 
     cdc_fig5.update_layout(
-        title_text= '<b>Percentage of' + type + 'Doses Received But Not Administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
+        title_text= '<b>Percentage of' + type + 'Doses Received But Not administered as of ' + recent_date.strftime("%m/%d/%Y") +'</b>',
         geo_scope='usa'
     )
 
     
 
-    state_df = cdc_df[cdc_df['Location'] == state].copy()
+    state_df = cdc_df[cdc_df['location'] == state].copy()
 
-    state_df['Date'] = pd.to_datetime(state_df['Date'])
-    state_df = state_df.sort_values(by = 'Date')
+    state_df['date'] = pd.to_datetime(state_df['date'])
+    state_df = state_df.sort_values(by = 'date')
 
     if not state:
         state = " "
@@ -457,9 +460,9 @@ def make_figures(state:str, type:str):
 
     state_fig1 = px.line(
         state_df,
-        x = 'Date',
-        y = 'Distributed',
-        title = '<b>Cumulative Number of Distributed Doses in ' + state +'</b>'
+        x = 'date',
+        y = 'distributed',
+        title = '<b>Cumulative Number of distributed Doses in ' + state +'</b>'
     )
 
     state_fig1.update_layout(
@@ -481,15 +484,15 @@ def make_figures(state:str, type:str):
     #     mirror=True
     # )
 
-    state_df.loc[:, 'Shifted Distributed'] = state_df['Distributed'].shift(1)
-    state_df.loc[:, 'Non Cumulative Distributed'] = state_df['Distributed'] - state_df['Shifted Distributed']
-    state_df.loc[state_df['Non Cumulative Distributed'] < 0, 'Non Cumulative Distributed'] = 0
+    state_df.loc[:, 'Shifted distributed'] = state_df['distributed'].shift(1)
+    state_df.loc[:, 'Non Cumulative distributed'] = state_df['distributed'] - state_df['Shifted distributed']
+    state_df.loc[state_df['Non Cumulative distributed'] < 0, 'Non Cumulative distributed'] = 0
 
     state_fig2 = px.line(
         state_df,
-        x = 'Date',
-        y = 'Non Cumulative Distributed',
-        title = '<b>Number of Daily/Weekly Doses Distributed in ' + state +'</b>'
+        x = 'date',
+        y = 'Non Cumulative distributed',
+        title = '<b>Number of Daily/Weekly Doses distributed in ' + state +'</b>'
     )
 
 
@@ -507,7 +510,7 @@ def make_figures(state:str, type:str):
     )
 
     state_fig2.add_vrect(
-        x0=state_df['Date'].min(), 
+        x0=state_df['date'].min(), 
         x1=separation_date, 
         annotation_text="Data Aggregated Daily     ", 
         annotation_position="top right",
@@ -518,7 +521,7 @@ def make_figures(state:str, type:str):
 
     state_fig2.add_vrect(
         x0=separation_date, 
-        x1=state_df['Date'].max(), 
+        x1=state_df['date'].max(), 
         annotation_text="     Data Aggregated Weekly", 
         annotation_position="top left",
         fillcolor="orange", 
