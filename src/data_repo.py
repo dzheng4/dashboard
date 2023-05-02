@@ -70,7 +70,6 @@ cdc_df = load_data('country_data/COVID-19_Vaccinations_in_the_United_States_Juri
 policy_df = load_data('states_data/state_policy.csv')
 
 
-
 path = "fips2county.tsv"
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath(path).resolve()
