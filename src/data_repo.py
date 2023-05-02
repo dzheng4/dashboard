@@ -63,7 +63,59 @@ minnesota_vaccination_df = load_data('states_data/MN/9_28_2022/Doses Administere
 
 
 ### cdc data
-cdc_df = load_data('country_data/COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
+## Change from static CSV to live API calls 4/30/2023
+# cdc_df = load_data('country_data/COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
+
+### API Data
+import pandas as pd
+from sodapy import Socrata
+
+# Unauthenticated client only works with public data sets. Note 'None'
+# in place of application token, and no username or password:
+# client = Socrata("data.cdc.gov", None)
+
+# Example authenticated client (needed for non-public datasets):
+client = Socrata('data.cdc.gov',
+                 'b2Ku70AWKNlqi95K8X8p0rDXt',
+                 username="dzheng4@ncsu.edu",
+                 password="NCSU-covid19",)
+
+# First 2000 results, returned as JSON from API / converted to Python list of
+# dictionaries by sodapy.
+results = client.get("unsk-b7fc", limit=1000000)
+
+# Convert to pandas DataFrame
+cdc_df = pd.DataFrame.from_records(results)
+
+cdc_df = cdc_df[
+    ['date',
+    'location',
+    'series_complete_pop_pct',
+    'distributed',
+    'distributed_pfizer',
+    'distributed_moderna',
+    'distributed_janssen',
+    'administered',
+    'administered_pfizer',
+    'administered_moderna',
+    'administered_janssen']
+]
+
+cdc_df = cdc_df.astype(
+  {
+    'date': 'str',
+    'location':'str',
+    'series_complete_pop_pct':'float',
+    'distributed':'float',
+    'distributed_pfizer':'float',
+    'distributed_moderna':'float',
+    'distributed_janssen':'float',
+    'administered':'float',
+    'administered_pfizer':'float',
+    'administered_moderna':'float',
+    'administered_janssen':'float'
+  }
+)
 
 
 ## Policy data from "multi"
