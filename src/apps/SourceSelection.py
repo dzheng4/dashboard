@@ -45,7 +45,7 @@ layout = html.Div([
             [
                 dbc.Card([
                     dbc.CardImg(
-                        src = "/assets/foia.png",
+                        src = "/assets/tableau_demo2.png",
                         top=True,
                         style = {
                             "width" : "330px",
@@ -74,7 +74,7 @@ layout = html.Div([
             [
                 dbc.Card([
                     dbc.CardImg(
-                        src = "/assets/tableau_demo.png",
+                        src = "/assets/parquet_demo.png",
                         top=True,
                         style = {
                             "width" : "330px",
