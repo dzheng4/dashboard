@@ -171,34 +171,40 @@ layout = html.Div([
         
 
 
-        dbc.Col(
-            [
-                dbc.Card([
-                    dbc.CardImg(
-                        src = "/assets/optimization.jpg",
-                        top=True,
-                        style = {
-                            "width" : "330px",
-                            "height": "220px"
-                        },
-                        className = 'align-self-center'
-                    ),
-                    dbc.CardBody([
-                        dbc.Button(
-                            "Model Explanation",
-                            href='apps/model'
-                        )
-                    ], className = 'align-self-center')
-                ],
-                    style = {
-                        "width" : "30rem",
-                        'margin-left' : 'auto',
-                        'margin-right' : 'auto',
-                        'border' : 'none'
-                    }
-                ),
-            ]
-        ),
+        ###########
+        # 
+        # Commented out on 9/24/2023 per Dr. Ali's request. We are hiding the model explanation part for now.
+        #
+        ###########
+
+        # dbc.Col(
+        #     [
+        #         dbc.Card([
+        #             dbc.CardImg(
+        #                 src = "/assets/optimization.jpg",
+        #                 top=True,
+        #                 style = {
+        #                     "width" : "330px",
+        #                     "height": "220px"
+        #                 },
+        #                 className = 'align-self-center'
+        #             ),
+        #             dbc.CardBody([
+        #                 dbc.Button(
+        #                     "Model Explanation",
+        #                     href='apps/model'
+        #                 )
+        #             ], className = 'align-self-center')
+        #         ],
+        #             style = {
+        #                 "width" : "30rem",
+        #                 'margin-left' : 'auto',
+        #                 'margin-right' : 'auto',
+        #                 'border' : 'none'
+        #             }
+        #         ),
+        #     ]
+        # ),
 
 
         dbc.Col(
